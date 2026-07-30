@@ -28,10 +28,10 @@
   --new-bg:        #fdf3dd;
 
   --measure: 34rem;
-  /* Reading column: ~75 characters on a laptop, easing to ~82 on a large
-     display so the page does not look sparse without the line becoming hard
-     to track. */
-  --measure-prose: clamp(40rem, 46vw, 44rem);
+  /* Prose spans the full container by author preference. Typographic
+     convention would cap this near 75 characters; set a value here (e.g.
+     clamp(40rem, 46vw, 44rem)) to reinstate a reading column. */
+  --measure-prose: none;
   --page: 76rem;
   --step: 1.6rem;
   --radius: 3px;
@@ -245,13 +245,13 @@ section + section { margin-top: calc(var(--step) * 2.5); }
 
 .profile__bio {
   margin-top: 5.5rem;
-  /* Was 0.875rem across the full 1160px — about 166 characters per line.
-     Held to a readable measure and centred under the centred header, so the
-     whitespace falls evenly either side rather than all to the right. */
   font-size: 1.0625rem;
   line-height: 1.75;
   max-width: var(--measure-prose);
   margin-inline: auto;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 .profile__bio p { margin: 0 0 1.15em; }
 .profile__bio p:last-child { margin-bottom: 0; }
@@ -421,10 +421,8 @@ h1.hero__name {
 
 /* --- Article pages ------------------------------------------------------- */
 
-/* An article page is a single centred column: title, byline, publication
-   line and body all share one axis. The container is narrowed too — at the
-   full 76rem the column sat in the middle of a wide empty field. */
-.article-page .wrap { max-width: 58rem; }
+/* An article page is a single column: title, byline, publication line and
+   body all share one axis. */
 .article-page .page-title,
 .article-page .byline,
 .article-page .article-meta {
@@ -450,15 +448,32 @@ h1.hero__name {
   max-width: var(--measure-prose);
 }
 
-/* Long-form prose is held to a readable measure and centred. Left-aligned in
-   a full-width container it stranded ~660px of empty space on one side at
-   laptop widths, which reads worse than an over-long line. */
 .article-body {
   max-width: var(--measure-prose);
   margin-inline: auto;
   font-size: 1.0625rem;
   line-height: 1.75;
+  /* Justified to give the full-width column flush edges on both sides.
+     Hyphenation is essential here: without it, justifying a wide measure
+     opens ugly rivers of white space between words. */
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
+
+/* Hyphenation needs the language declared, and CJK must not be hyphenated —
+   it breaks anywhere already. */
+.article-body:lang(zh-Hans),
+.article-body:lang(zh) {
+  hyphens: none;
+  -webkit-hyphens: none;
+}
+
+/* Bare URLs and short lines justify badly. */
+.article-body .reference,
+.article-body .footnote,
+.article-body pre { text-align: left; hyphens: none; }
 .article-body h2 {
   margin-top: 2.25rem;
   text-transform: none;
@@ -575,13 +590,14 @@ h1.hero__name {
   text-align: center;
   max-width: none;
 }
-/* Centred to sit under the centred title, but held to a readable measure
-   rather than the full page width. */
 .running-page .prose {
   max-width: var(--measure-prose);
   margin-inline: auto;
   font-size: 1.0625rem;
   line-height: 1.75;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 .running-page .prose p { margin: 0 0 1.15em; }
 .running-page .prose p:last-child { margin-bottom: 0; }
