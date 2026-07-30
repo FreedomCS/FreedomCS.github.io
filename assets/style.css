@@ -847,7 +847,7 @@ h3 {
 }
 .foot a { color: var(--ink-faint); border-bottom-color: var(--rule); }
 .foot a:hover { color: var(--accent); }
-.foot__disclaimer { max-width: 32rem; font-size: 0.75rem; }
+.foot__disclaimer { font-size: 0.75rem; }
 .foot__bookmarks { display: flex; gap: 1rem; flex-wrap: wrap; }
 
 .visits {
