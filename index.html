@@ -79,13 +79,22 @@
       <div class="linkrow js-bookmarks"></div>
     </section>
 
+    <section class="visitors no-print">
+      <!-- Same MapMyVisitors widget as the Google Site, so the existing
+           pageview total carries over. The d= key identifies the account. -->
+      <a href="https://mapmyvisitors.com/web/1bxu9" title="Visit tracker">
+        <img src="https://mapmyvisitors.com/map.png?cl=ffffff&amp;w=300&amp;t=tt&amp;d=g7JgWAnNj6K9wyvCSpRZpiWYhKDXlksO8sRGHl3tkCg&amp;co=2d78ad&amp;ct=ffffff"
+             alt="Map of visitor locations with total pageview count"
+             width="300" height="158" loading="lazy">
+      </a>
+    </section>
+
   </div>
 </main>
 
 <footer class="foot">
   <div class="wrap">
     <div class="foot__grid">
-      <span class="visits" id="visit-count" hidden></span>
       <div style="margin-left:auto">
         © <span class="js-year"></span> Wenzhe Li
       </div>
@@ -93,17 +102,6 @@
     <p class="foot__disclaimer js-disclaimer"></p>
   </div>
 </footer>
-
-<!-- Visitor counting — GoatCounter (privacy-friendly, no cookies, free for
-     personal sites). Currently OFF: nothing is loaded and no data leaves the
-     page. To switch it on, register at goatcounter.com, then uncomment the two
-     lines below and replace YOURCODE with your subdomain in both.
-     See README "Visitor counts" for the full steps.
-
-<script>window.WL_GOATCOUNTER = "YOURCODE";</script>
-<script data-goatcounter="https://YOURCODE.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
--->
 
 <script src="assets/site.js"></script>
 </body>

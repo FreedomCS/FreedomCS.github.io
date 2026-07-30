@@ -850,9 +850,11 @@ h3 {
 .foot__disclaimer { font-size: 0.75rem; }
 .foot__bookmarks { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-.visits {
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0.01em;
+/* MapMyVisitors widget — a plain image, so it needs no border or chrome. */
+.visitors a { border-bottom: 0; display: inline-block; }
+.visitors img {
+  border-radius: var(--radius);
+  max-width: 300px;
 }
 
 /* --- Utility ------------------------------------------------------------ */
@@ -877,7 +879,7 @@ h3 {
   body { font-size: 9.75pt; line-height: 1.4; background: #fff; color: #000; }
 
   .masthead, .nav, .skip, .filters, .filter-note,
-  .print-hint, .foot__bookmarks, .portrait, .hero__aside, .visits,
+  .print-hint, .foot__bookmarks, .portrait, .hero__aside, .visitors,
   .no-print { display: none !important; }
 
   .wrap { max-width: none; padding: 0; }

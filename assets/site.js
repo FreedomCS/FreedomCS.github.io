@@ -419,30 +419,6 @@ function renderProfileBits(site) {
   $$(".js-year").forEach((el) => { el.textContent = new Date().getFullYear(); });
 }
 
-/* --- Visitor count ------------------------------------------------------
-   Reads the total from GoatCounter's counter endpoint. Stays hidden unless
-   window.WL_GOATCOUNTER has been set to a real site code, so an
-   unconfigured or unreachable counter shows nothing rather than a zero or
-   an error. Enable "Allow adding visitor counts on your website" in the
-   GoatCounter settings for this to return data.                          */
-async function renderVisits() {
-  const el = $("#visit-count");
-  const code = window.WL_GOATCOUNTER;
-  if (!el || !code || code === "YOURCODE") return;
-
-  try {
-    const res = await fetch(
-      `https://${code}.goatcounter.com/counter/TOTAL.json`, { cache: "no-cache" });
-    if (!res.ok) return;
-    const { count } = await res.json();
-    if (!count) return;
-    el.textContent = `${count} visits`;
-    el.hidden = false;
-  } catch {
-    /* Counter is a nicety; never let it disturb the page. */
-  }
-}
-
 /* --- Boot --------------------------------------------------------------- */
 (async function boot() {
   try {
@@ -459,7 +435,6 @@ async function renderVisits() {
     injectSchema(site, pubData.publications);
 
     document.body.dataset.ready = "true";
-    renderVisits();
   } catch (err) {
     console.error(err);
     const banner = document.createElement("div");

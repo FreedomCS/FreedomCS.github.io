@@ -184,37 +184,28 @@ Once live:
 
 ---
 
-## 7. Visitor counts (currently off)
+## 7. Visitor counts
 
-The footer has a hidden `#visit-count` slot wired to
-[GoatCounter](https://www.goatcounter.com/) — free for personal sites, no
-cookies, no personal data, so no consent banner needed. Nothing loads and no
-data leaves the page until you switch it on.
+The home page shows the **MapMyVisitors** widget — the same one that was on
+the Google Site, using the same account key, so the existing pageview total
+carries over rather than restarting at zero. It sits below Bookmarks and
+renders a world map with the running total (273 pageviews when it was
+migrated).
 
-To enable:
+It is a plain `<img>` served over HTTPS, so it needs no JavaScript and works
+on GitHub Pages unchanged. The `d=` parameter in the URL is the account key;
+keep it intact. Dashboard: <https://mapmyvisitors.com/web/1bxu9>.
 
-1. Register a site at <https://www.goatcounter.com/signup>. You choose a
-   subdomain — say `wenzheli`, giving you `wenzheli.goatcounter.com`.
-2. In GoatCounter **Settings → Site settings**, tick
-   **"Allow adding visitor counts on your website"**. Without this the count
-   endpoint returns nothing.
-3. In `index.html`, find the commented GoatCounter block near the bottom,
-   uncomment the two `<script>` lines, and replace `YOURCODE` with your
-   subdomain **in both places**.
+Two earlier attempts, for the record:
 
-The footer then shows a total once there is traffic. If the service is ever
-unreachable the count simply stays hidden rather than showing an error.
-
-> **A previous counter was removed.** The site briefly used Busuanzi
-> (`busuanzi.ibruce.info`), which displayed 10,455,116 visits / 7,634,371
-> visitors — a *global* tally shared by every site using that service, not
-> this site's traffic. It also counts over plain `http://`, which browsers
-> block as mixed content on an HTTPS page, so it would not have worked on
-> GitHub Pages at all. Don't reinstate it.
-
-Alternatives if GoatCounter ever stops suiting you: **Cloudflare Web
-Analytics** (free, unlimited, but dashboard-only — it cannot print a number
-on the page) or **Umami Cloud** (free hobby tier, 100k events/month).
+- **Busuanzi** was briefly used and removed. It displayed 10,455,116 visits /
+  7,634,371 visitors — a *global* tally shared by every site using that free
+  service, not this site's traffic — and it counts over plain `http://`, which
+  browsers block as mixed content on an HTTPS page. Don't reinstate it.
+- **GoatCounter** was wired up as a replacement before realising the
+  MapMyVisitors registration already existed. Removed as redundant. It
+  remains a good option (no cookies, free for personal sites) if a plain
+  number is ever wanted instead of a map.
 
 ---
 
