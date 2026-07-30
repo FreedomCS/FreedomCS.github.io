@@ -34,40 +34,6 @@
   --transition: 140ms ease;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg:          #16161a;
-    --bg-raised:   #1d1d22;
-    --bg-subtle:   #232329;
-    --ink:         #e8e6e1;
-    --ink-muted:   #a8a49c;
-    --ink-faint:   #7d7972;
-    --rule:        #32323a;
-    --rule-strong: #45454f;
-    --accent:      #d99a9a;
-    --accent-soft: #2e2224;
-    --accent-ink:  #e8b8b8;
-    --new:         #d9b169;
-    --new-bg:      #302819;
-  }
-}
-
-/* Explicit toggle overrides — must win in both directions. */
-:root[data-theme="light"] {
-  --bg: #fdfcfa;  --bg-raised: #ffffff; --bg-subtle: #f5f2ed;
-  --ink: #1a1a18; --ink-muted: #57544e; --ink-faint: #85817a;
-  --rule: #e2ddd4; --rule-strong: #cdc7bb;
-  --accent: #7a2e2e; --accent-soft: #f0e4e4; --accent-ink: #5c2222;
-  --new: #8a5a00; --new-bg: #fdf3dd;
-}
-:root[data-theme="dark"] {
-  --bg: #16161a;  --bg-raised: #1d1d22; --bg-subtle: #232329;
-  --ink: #e8e6e1; --ink-muted: #a8a49c; --ink-faint: #7d7972;
-  --rule: #32323a; --rule-strong: #45454f;
-  --accent: #d99a9a; --accent-soft: #2e2224; --accent-ink: #e8b8b8;
-  --new: #d9b169; --new-bg: #302819;
-}
-
 /* --- Base --------------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -191,19 +157,6 @@ section + section { margin-top: calc(var(--step) * 2.5); }
   border-bottom-color: var(--accent);
 }
 
-.theme-toggle {
-  background: none;
-  border: 1px solid var(--rule);
-  color: var(--ink-muted);
-  font-family: var(--sans);
-  font-size: 0.75rem;
-  cursor: pointer;
-  padding: 0.25rem 0.5rem;
-  border-radius: var(--radius);
-  line-height: 1.2;
-}
-.theme-toggle:hover { color: var(--ink); border-color: var(--rule-strong); }
-
 @media (max-width: 46rem) {
   .masthead__inner {
     display: block;
@@ -220,7 +173,6 @@ section + section { margin-top: calc(var(--step) * 2.5); }
     justify-content: start;
     flex-wrap: nowrap;
   }
-  .nav .theme-toggle { display: none; }
 }
 
 /* --- Google Site profile composition ----------------------------------- */
@@ -275,30 +227,6 @@ section + section { margin-top: calc(var(--step) * 2.5); }
   object-fit: contain;
 }
 
-/* The official logos are dark artwork drawn for white stationery, so in dark
-   mode they need their own light card rather than the page background —
-   recolouring them would misrepresent the institutions' marks. */
-@media (prefers-color-scheme: dark) {
-  .profile__logos img {
-    background: #fff;
-    border-radius: var(--radius);
-    padding: 0.4rem 0.55rem;
-    box-sizing: border-box;
-    max-height: 3.9rem;
-  }
-}
-:root[data-theme="dark"] .profile__logos img {
-  background: #fff;
-  border-radius: var(--radius);
-  padding: 0.4rem 0.55rem;
-  box-sizing: border-box;
-  max-height: 3.9rem;
-}
-:root[data-theme="light"] .profile__logos img {
-  background: none;
-  padding: 0;
-  max-height: 3.2rem;
-}
 .profile__bio {
   margin-top: 7.5rem;
   font-size: 0.875rem;
@@ -827,12 +755,6 @@ h3 {
   color: #fff;
   font-weight: 500;
 }
-@media (prefers-color-scheme: dark) {
-  .filter[aria-pressed="true"] { color: #16161a; }
-}
-:root[data-theme="dark"] .filter[aria-pressed="true"] { color: #16161a; }
-:root[data-theme="light"] .filter[aria-pressed="true"] { color: #fff; }
-
 /* Reserves its line whether or not a filter is active, so the first group
    heading does not jump when filtering. */
 .filter-note {
@@ -954,7 +876,7 @@ h3 {
 
   body { font-size: 9.75pt; line-height: 1.4; background: #fff; color: #000; }
 
-  .masthead, .nav, .theme-toggle, .skip, .filters, .filter-note,
+  .masthead, .nav, .skip, .filters, .filter-note,
   .print-hint, .foot__bookmarks, .portrait, .hero__aside, .visits,
   .no-print { display: none !important; }
 

@@ -4,39 +4,6 @@
    No build step, no dependencies.
    ========================================================================== */
 
-/* --- Theme toggle (runs immediately; also inlined in <head> to avoid flash) */
-(function theme() {
-  const KEY = "wl-theme";
-  const root = document.documentElement;
-
-  const saved = (() => { try { return localStorage.getItem(KEY); } catch { return null; } })();
-  if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
-
-  function current() {
-    return root.getAttribute("data-theme")
-      || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-  }
-
-  document.addEventListener("click", (e) => {
-    const btn = e.target.closest(".theme-toggle");
-    if (!btn) return;
-    const next = current() === "dark" ? "light" : "dark";
-    root.setAttribute("data-theme", next);
-    try { localStorage.setItem(KEY, next); } catch {}
-    sync();
-  });
-
-  function sync() {
-    const dark = current() === "dark";
-    document.querySelectorAll(".theme-toggle").forEach((b) => {
-      b.textContent = dark ? "Light" : "Dark";
-      b.setAttribute("aria-label", `Switch to ${dark ? "light" : "dark"} theme`);
-    });
-  }
-  document.addEventListener("DOMContentLoaded", sync);
-  sync();
-})();
-
 /* --- Helpers ------------------------------------------------------------- */
 const esc = (s) =>
   String(s ?? "").replace(/[&<>"']/g, (c) =>
