@@ -184,6 +184,40 @@ Once live:
 
 ---
 
+## 7. Visitor counts (currently off)
+
+The footer has a hidden `#visit-count` slot wired to
+[GoatCounter](https://www.goatcounter.com/) — free for personal sites, no
+cookies, no personal data, so no consent banner needed. Nothing loads and no
+data leaves the page until you switch it on.
+
+To enable:
+
+1. Register a site at <https://www.goatcounter.com/signup>. You choose a
+   subdomain — say `wenzheli`, giving you `wenzheli.goatcounter.com`.
+2. In GoatCounter **Settings → Site settings**, tick
+   **"Allow adding visitor counts on your website"**. Without this the count
+   endpoint returns nothing.
+3. In `index.html`, find the commented GoatCounter block near the bottom,
+   uncomment the two `<script>` lines, and replace `YOURCODE` with your
+   subdomain **in both places**.
+
+The footer then shows a total once there is traffic. If the service is ever
+unreachable the count simply stays hidden rather than showing an error.
+
+> **A previous counter was removed.** The site briefly used Busuanzi
+> (`busuanzi.ibruce.info`), which displayed 10,455,116 visits / 7,634,371
+> visitors — a *global* tally shared by every site using that service, not
+> this site's traffic. It also counts over plain `http://`, which browsers
+> block as mixed content on an HTTPS page, so it would not have worked on
+> GitHub Pages at all. Don't reinstate it.
+
+Alternatives if GoatCounter ever stops suiting you: **Cloudflare Web
+Analytics** (free, unlimited, but dashboard-only — it cannot print a number
+on the page) or **Umami Cloud** (free hobby tier, 100k events/month).
+
+---
+
 ## Still to do
 
 - [ ] Verify the *Economic Research Journal* working-paper link — the old site
