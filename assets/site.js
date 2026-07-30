@@ -45,16 +45,24 @@ const esc = (s) =>
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
+// Site root relative to the current page, derived from this script's own src
+// ("assets/site.js" on root pages, "../assets/site.js" on subpages) — so
+// data files resolve correctly from articles/*.html too.
+const ROOT = (() => {
+  const s = document.querySelector('script[src$="site.js"]');
+  return s ? s.getAttribute("src").replace(/assets\/site\.js$/, "") : "";
+})();
+
 async function loadJSON(path) {
-  const res = await fetch(path, { cache: "no-cache" });
+  const res = await fetch(ROOT + path, { cache: "no-cache" });
   if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
   return res.json();
 }
 
 const TYPE_LABEL = {
-  journal: "Peer-reviewed journal articles",
-  working: "Working papers",
-  other:   "Policy work, institutional reports and essays",
+  journal: "Peer-Reviewed Journal Publications",
+  working: "Working Paper",
+  other:   "Other Publications",
 };
 const TYPE_ORDER = ["journal", "working", "other"];
 
@@ -277,9 +285,9 @@ function renderArticles(site) {
   if (!el) return;
   el.innerHTML = (site.articles || []).map((a) => `
     <li id="${esc(a.id)}">
-      <h3>${esc(a.title)}</h3>
+      <h3>${esc(a.title)}${a.year ? ` <span class="cites">(${esc(a.year)})</span>` : ""}</h3>
       ${a.title_zh ? `<p class="pub__zh" lang="zh">${esc(a.title_zh)}</p>` : ""}
-      <p>${a.blurb}${a.year ? ` <span class="cites">(${esc(a.year)})</span>` : ""}</p>
+      ${a.blurb ? `<p>${a.blurb}</p>` : ""}
       <div class="pub__meta">${
         (a.links || []).map((l) => `<span class="pub__links"><a href="${esc(l.url)}" rel="noopener">${esc(l.label)}</a></span>`).join("")
       }</div>

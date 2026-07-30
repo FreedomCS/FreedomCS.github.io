@@ -3,22 +3,27 @@
 Static site. No build step, no dependencies, no framework. Plain HTML, one
 stylesheet, one script, and two JSON data files.
 
-Three pages, mirroring the original site's structure:
+Mirrors the original Google Site's structure:
 
 ```
 index.html            Home — bio, research areas, ALL publications
-                      (filterable, BibTeX), news, about.
+                      (filterable, BibTeX), news, about, bookmarks.
                       Ctrl+P prints it as a clean CV.
-articles.html         Essays and interviews
-running.html          Running
+articles.html         Index of the three articles
+articles/
+  tsinghua-12-years.html      我在清华大学求学十二年 (full text)
+  wudaokou-interview.html     Wudaokou alumni interview (full text)
+  money-perspectives.html     Money essay, English (full text)
+  money-perspectives-cn.html  货币的形态演变和三个层次 (full text)
+running.html          Running — original text + all 9 photos
 
-data/site.json        ← YOU EDIT: bio, affiliations, links, news, essays
+data/site.json        ← YOU EDIT: bio, affiliations, links, news, articles
 data/publications.json ← YOU EDIT: every paper
 
 assets/style.css      All styling (light + dark + print)
 assets/site.js        Renders the pages from the JSON
 assets/portrait.jpg   Your photo (auto-resized web copy)
-assets/running/       ← optional: running photos, see running.html comment
+assets/running/       The 9 running photos, migrated from Google Sites
 ```
 
 ---
@@ -164,10 +169,6 @@ Once live:
 
 ## Still to do
 
-- [ ] Add running photos to `assets/running/` and uncomment the gallery
-      block in `running.html`
-- [ ] Migrate the three essays from Google Sites into local pages
-      (currently `articles.html` links out to the old site)
 - [ ] Verify the *Economic Research Journal* working-paper link — the old site
       used the same URL for both the published and working-paper versions
 - [ ] Refresh citation counts periodically in `data/publications.json`

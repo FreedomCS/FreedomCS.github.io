@@ -89,41 +89,38 @@
 
   "articles": [
     {
-      "id": "money-perspectives",
-      "title": "Money Perspectives",
-      "title_zh": "货币的形态演变和三个层次",
-      "year": 2025,
-      "blurb": "On the evolving physical form of money and the three levels at which it can be defined. Published in <em>China Finance</em>.",
-      "links": [
-        { "label": "English", "url": "https://sites.google.com/view/liwenzhe/articles/money-perspectives" },
-        { "label": "中文", "url": "https://sites.google.com/view/liwenzhe/articles/money-perspectives/cn" }
-      ]
-    },
-    {
       "id": "tsinghua-12-years",
       "title": "My 12 Years of Study at Tsinghua University",
       "title_zh": "我在清华大学求学十二年",
       "year": 2019,
-      "blurb": "A personal account of twelve years at Tsinghua — from Mathematics and Physics to a Ph.D. in Economics. Published in <em>Financial View</em> and republished in the <em>Tsinghua Alumni Gazette</em>.",
       "links": [
-        { "label": "中文", "url": "https://www.tsinghua.org.cn/info/3259/41230.htm" }
+        { "label": "Read", "url": "articles/tsinghua-12-years.html" }
       ]
     },
     {
       "id": "wudaokou-interview",
-      "title": "Interview: The Wudaokou Tradition",
+      "title": "Interview: Wudaokou tradition",
+      "title_zh": "传承道口精神，研究宏观金融",
       "year": null,
-      "blurb": "An interview on the intellectual tradition of Wudaokou and the PBC School of Finance.",
       "links": [
-        { "label": "Read", "url": "https://sites.google.com/view/liwenzhe/articles/interview-wudaokou-tradition" }
+        { "label": "Read", "url": "articles/wudaokou-interview.html" }
+      ]
+    },
+    {
+      "id": "money-perspectives",
+      "title": "Money Perspectives",
+      "title_zh": "货币的形态演变和三个层次",
+      "year": 2025,
+      "links": [
+        { "label": "English", "url": "articles/money-perspectives.html" },
+        { "label": "中文", "url": "articles/money-perspectives-cn.html" }
       ]
     }
   ],
 
   "bookmarks": [
-    { "label": "Tirupam Goel", "url": "https://sites.google.com/site/tirupam/" },
-    { "label": "Jiayue Zhang", "url": "https://jzhangg.github.io/" }
+    { "label": "Tirupam Goel", "url": "https://sites.google.com/site/tirupam/" }
   ],
 
-  "disclaimer": "The views expressed on this website are my own and are not necessarily those of AMRO, the BIS, or their member authorities."
+  "disclaimer": "The views expressed on this webpage are my own and are not necessarily those of AMRO or its member authorities."
 }
