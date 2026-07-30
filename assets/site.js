@@ -111,14 +111,13 @@ function pubHTML(pub, themes) {
   const noteZh = pub.note_zh
     ? `<p class="pub__zh" lang="zh">${esc(pub.note_zh)}</p>` : "";
 
-  const themeTags = (pub.themes || [])
-    .filter((t) => themes[t])
-    .map((t) => `<a class="tag tag--theme" href="index.html?theme=${esc(t)}#publications">${esc(themes[t].short)}</a>`)
-    .join("");
-
+  // Research-area tags are omitted: the filter UI they linked to was removed
+  // with the multi-page layout, so they were 20 dead links competing with the
+  // paper titles. `themes` in publications.json still groups the work and can
+  // drive a filter again if one is reintroduced.
   const newTag = pub.is_new ? `<span class="tag tag--new">New</span>` : "";
 
-  const meta = [linksHTML(pub), citesHTML(pub), themeTags, newTag]
+  const meta = [linksHTML(pub), citesHTML(pub), newTag]
     .filter(Boolean).join("");
 
   return `

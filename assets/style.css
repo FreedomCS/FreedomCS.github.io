@@ -28,6 +28,9 @@
   --new-bg:        #fdf3dd;
 
   --measure: 34rem;
+  /* ~68 characters at the body size — the range the eye tracks without
+     losing its place returning to the start of a line. */
+  --measure-prose: 40rem;
   --page: 76rem;
   --step: 1.6rem;
   --radius: 3px;
@@ -229,10 +232,14 @@ section + section { margin-top: calc(var(--step) * 2.5); }
 
 .profile__bio {
   margin-top: 7.5rem;
-  font-size: 0.875rem;
-  line-height: 1.7;
+  /* Was 0.875rem across the full 1160px — about 166 characters per line.
+     Now matches the article body size and sits on a readable measure. */
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  max-width: var(--measure-prose);
 }
-.profile__bio p { margin: 0; }
+.profile__bio p { margin: 0 0 1.15em; }
+.profile__bio p:last-child { margin-bottom: 0; }
 .profile__links {
   display: grid;
   grid-template-columns: 10rem 1fr;
@@ -398,28 +405,102 @@ h1.hero__name {
 }
 
 /* --- Article pages ------------------------------------------------------- */
+
+/* Author line / Chinese subtitle under the article title. */
+.byline {
+  font-size: 1.0625rem;
+  color: var(--ink-muted);
+  margin: -0.35rem 0 1.9rem;
+  max-width: var(--measure-prose);
+}
+.byline:lang(en) { font-family: var(--serif); }
+.byline:lang(zh) { font-family: var(--cjk); }
+
 .article-meta {
   font-family: var(--sans);
   font-size: 0.8125rem;
   color: var(--ink-faint);
-  margin: -1.75rem 0 2.5rem;
+  margin: 0 0 2.75rem;
+  max-width: var(--measure-prose);
+}
+
+/* Long-form prose is held to a readable measure. Without this the text runs
+   the full page width — around 136 characters per line, roughly double what
+   the eye tracks comfortably. */
+.article-body {
+  max-width: var(--measure-prose);
+  font-size: 1.0625rem;
+  line-height: 1.75;
 }
 .article-body h2 {
   margin-top: 2.25rem;
   text-transform: none;
   letter-spacing: 0.01em;
   font-family: var(--serif);
-  font-size: 1.25rem;
+  font-size: 1.375rem;
+  font-weight: 600;
+  border-bottom: 0;
+  padding-bottom: 0;
+  display: block;
 }
-.article-body p { margin: 0 0 1.1em; }
+.article-body p { margin: 0 0 1.15em; }
+
+/* CJK text has no spaces, so a whole paragraph is one unbreakable "word" and
+   would otherwise force the page sideways on a phone. */
+.article-body:lang(zh-Hans),
+.article-body:lang(zh),
+.article-body [lang="zh"] {
+  line-break: normal;
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+
+/* A Latin passage inside a Chinese page inherits the CJK serif, whose Latin
+   glyphs are uniform-width and read as monospace. Give it the Latin serif. */
+.article-body [lang="en"] {
+  font-family: var(--serif);
+  overflow-wrap: break-word;
+}
+
 .article-body .footnote {
   font-size: 0.8125rem;
   color: var(--ink-faint);
   border-top: 1px solid var(--rule);
   padding-top: 0.9rem;
   margin-top: 2rem;
+  /* Reference lists carry bare URLs of 100+ characters. */
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
+
+/* Bibliography entries: smaller, hanging indent, and forced to wrap — several
+   contain bare URLs over 100 characters that would otherwise push the page
+   sideways on a phone. */
+.article-body .reference {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  margin: 0 0 0.65em;
+  padding-left: 1.5rem;
+  text-indent: -1.5rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.article-body .reference:lang(en) { font-family: var(--serif); }
 .article-body .footnote + .footnote { border-top: 0; padding-top: 0; margin-top: 0; }
+
+/* The closing citation was extracted as a preformatted block and inherited a
+   monospace face; it is prose, so it should read as prose. */
+.article-body pre {
+  font-family: var(--serif);
+  font-size: 0.875rem;
+  color: var(--ink-faint);
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.9rem;
+  margin: 2rem 0 0;
+}
 
 /* --- Cities chips (running page) ---------------------------------------- */
 .cities { margin-top: 0.25rem; }
@@ -463,14 +544,18 @@ h1.hero__name {
   font-size: 3.5rem;
   font-weight: 500;
 }
+/* Centred to sit under the centred title, but held to a readable measure
+   rather than the full page width. */
 .running-page .prose {
-  max-width: none;
-  font-family: var(--sans);
-  font-size: 0.875rem;
-  line-height: 1.65;
+  max-width: var(--measure-prose);
+  margin-inline: auto;
+  font-size: 1.0625rem;
+  line-height: 1.75;
 }
-.running-page .prose p { margin: 0 0 1rem; }
+.running-page .prose p { margin: 0 0 1.15em; }
+.running-page .prose p:last-child { margin-bottom: 0; }
 .running-page section { margin-top: 3.5rem; }
+.running-page .prose + section { margin-top: 4rem; }
 
 @media (max-width: 46rem) {
   .running-page .page-title {
@@ -548,8 +633,12 @@ h3 {
   font-size: clamp(1.85rem, 4.5vw, 2.4rem);
   font-weight: 600;
   letter-spacing: -0.02em;
-  margin: 3.25rem 0 0.5rem;
-  line-height: 1.15;
+  margin: 3.25rem 0 0.9rem;
+  line-height: 1.2;
+  /* Slightly wider than the prose measure: a heading at this size can carry
+     more characters per line without becoming hard to track. */
+  max-width: 46rem;
+  text-wrap: balance;
 }
 .page-intro {
   color: var(--ink-muted);
