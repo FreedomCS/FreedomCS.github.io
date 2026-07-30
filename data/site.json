@@ -50,7 +50,7 @@
 
   "profiles": [
     { "label": "Google Scholar", "url": "https://scholar.google.com/citations?user=TOMxKgsAAAAJ&hl=en" },
-    { "label": "SSRN", "url": "https://ssrn.com/author=2620649" },
+    { "label": "SSRN Page", "url": "https://ssrn.com/author=2620649" },
     { "label": "LinkedIn", "url": "https://www.linkedin.com/in/wenzhe/" },
     { "label": "GitHub", "url": "https://github.com/FreedomCS" }
   ],
@@ -58,7 +58,7 @@
   "bio_short": "Senior Economist working at the intersection of monetary policy, financial stability, and macroeconomic research.",
 
   "bio": [
-    "Senior Economist working at the intersection of monetary policy, financial stability, and macroeconomic research. Currently based in Singapore at <a href=\"https://amro-asia.org/\">AMRO</a>, engaging with policymakers and academia across the region and translating sophisticated economic analysis into sharp policy insights. Currently also a Visiting Scholar at the <a href=\"https://www.bis.org/\">Bank for International Settlements</a>.",
+    "Senior Economist working at the intersection of monetary policy, financial stability, and macroeconomic research. Currently based in Singapore at <a href=\"https://amro-asia.org/\">AMRO</a>, engaging with policymakers and academia across the region and translating sophisticated economic analysis into sharp policy insights.",
     "Career spanning international organizations, China's central bank, and investment bank CICC, with experience in policy formulation, team management, and international cooperation with the BIS, IMF, and major central banks.",
     "Trained at <a href=\"https://www.tsinghua.edu.cn/en/\">Tsinghua University</a>, obtaining a B.Sc. in Mathematics and Physics, an M.Econ. in Finance, and a Ph.D. in Economics, with research experience at <a href=\"https://economics.princeton.edu/\">Princeton</a> and the BIS.",
     "Drawn to the defining questions about how inflation and credit evolve, how monetary transmission works across different financial structures, and what institutions can do to preserve stability."

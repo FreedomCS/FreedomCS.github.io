@@ -6,3 +6,7 @@ node_modules/
 
 # full-size original; the site uses the resized assets/portrait.jpg
 Wenzhe Li_portrait.JPG
+
+# Full-size running photo sources may contain EXIF/GPS/device metadata.
+# The site uses scrubbed, resized running-*.jpg copies generated from them.
+assets/running/*.JPG

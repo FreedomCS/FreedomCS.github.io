@@ -24,6 +24,8 @@ assets/style.css      All styling (light + dark + print)
 assets/site.js        Renders the pages from the JSON
 assets/portrait.jpg   Your photo (auto-resized web copy)
 assets/running/       The 9 running photos, migrated from Google Sites
+scripts/prepare-running-photos.ps1
+                      Creates web-safe running photos from local originals
 ```
 
 ---
@@ -88,6 +90,21 @@ anymore — that badge is the one thing that won't age itself.
 
 All in `data/site.json`. The `bio` field is an array of paragraphs and accepts
 inline HTML (so you can put links in). Same for `news[].html`.
+
+### Replacing running photos safely
+
+Place the nine full-resolution `.JPG` source files in `assets/running/` using
+the names listed in `scripts/prepare-running-photos.ps1`, then run:
+
+```powershell
+.\scripts\prepare-running-photos.ps1
+```
+
+The script applies camera orientation, center-crops and resizes each image to
+1280 × 1280, and writes the lowercase `running-*.jpg` files used by the site.
+It redraws every image into a new bitmap, removing EXIF/GPS, capture-time,
+device, and embedded-thumbnail metadata. The full-resolution `.JPG` sources
+are ignored by Git and must not be published.
 
 ---
 

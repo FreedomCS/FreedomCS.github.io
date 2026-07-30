@@ -28,7 +28,7 @@
   --new-bg:        #fdf3dd;
 
   --measure: 34rem;
-  --page: 64rem;
+  --page: 76rem;
   --step: 1.6rem;
   --radius: 3px;
   --transition: 140ms ease;
@@ -148,7 +148,7 @@ section + section { margin-top: calc(var(--step) * 2.5); }
   border-bottom: 1px solid var(--rule);
 }
 .masthead__inner {
-  max-width: var(--page);
+  max-width: none;
   margin: 0 auto;
   padding: 0.75rem 1.75rem;
   display: flex;
@@ -203,6 +203,154 @@ section + section { margin-top: calc(var(--step) * 2.5); }
   line-height: 1.2;
 }
 .theme-toggle:hover { color: var(--ink); border-color: var(--rule-strong); }
+
+@media (max-width: 46rem) {
+  .masthead__inner {
+    display: block;
+    padding: 0.7rem 1rem 0.65rem;
+  }
+  .brand { display: inline-block; margin-bottom: 0.55rem; }
+  .nav {
+    width: auto;
+    max-width: 100%;
+    margin-left: 0;
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    gap: 1.5rem;
+    justify-content: start;
+    flex-wrap: nowrap;
+  }
+  .nav .theme-toggle { display: none; }
+}
+
+/* --- Google Site profile composition ----------------------------------- */
+.profile {
+  padding: 5rem 0 0;
+  font-family: var(--sans);
+}
+.profile__grid {
+  display: grid;
+  grid-template-columns: 16.625rem 28rem 10.5rem;
+  gap: 5rem;
+  align-items: center;
+}
+.profile__grid > * { min-width: 0; }
+.profile__portrait .portrait {
+  width: 16.625rem;
+  max-width: none;
+  aspect-ratio: 1 / 1;
+  border-radius: 0;
+}
+.profile__details {
+  text-align: center;
+  color: var(--ink);
+}
+.profile__name {
+  margin: 0 0 1rem;
+  font-family: var(--sans);
+  font-size: 1.75rem;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+.profile__name .zh {
+  margin-left: 0.35rem;
+  font-family: var(--sans);
+}
+.profile__lines p {
+  margin: 0 0 1rem;
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+.profile__lines p:last-child { margin-bottom: 0; }
+.profile__lines a { color: var(--ink); border-bottom-color: var(--ink-muted); }
+.profile__logos {
+  display: grid;
+  align-items: center;
+  gap: 2.1rem;
+}
+.profile__logos img {
+  width: 100%;
+  max-height: 3.2rem;
+  object-fit: contain;
+}
+.profile__bio {
+  margin-top: 7.5rem;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+.profile__bio p { margin: 0; }
+.profile__links {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 3.25rem;
+  font-size: 0.875rem;
+}
+.profile__links .linkrow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2rem;
+  margin: 0;
+}
+.profile__links .linkrow li { display: block; }
+.profile__links .linkrow a {
+  display: block;
+  padding: 0.55rem 0.75rem;
+  border: 0;
+  border-radius: 2px;
+  background: #603482;
+  color: #fff;
+  text-align: center;
+}
+.profile__links .linkrow a:hover { background: #4f286e; }
+
+@media (max-width: 68rem) {
+  .profile__grid {
+    grid-template-columns: 14rem minmax(20rem, 1fr) 9rem;
+    gap: 3rem;
+  }
+  .profile__portrait .portrait { width: 14rem; }
+}
+
+@media (max-width: 46rem) {
+  .profile { padding-top: 4rem; }
+  .profile__grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    justify-items: center;
+  }
+  .profile__portrait .portrait { width: min(14rem, 72vw); }
+  .profile__details {
+    width: min(100%, calc(100vw - 3.5rem));
+    min-width: 0;
+  }
+  .profile__name { font-size: 1.55rem; }
+  .profile__lines p {
+    max-width: 100%;
+    font-size: 0.8rem;
+    overflow-wrap: anywhere;
+  }
+  .profile__lines a {
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    margin-inline: auto;
+    overflow-wrap: anywhere;
+  }
+  .profile__logos { width: 10.5rem; }
+  .profile__bio { margin-top: 4rem; }
+  .profile__links {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+  .profile__links .linkrow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+}
 
 /* --- Hero --------------------------------------------------------------- */
 .hero { padding: 3.75rem 0 0; }
@@ -334,22 +482,53 @@ h1.hero__name {
 /* --- Photo gallery (running page) ---------------------------------------- */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 1.8rem;
+  row-gap: 4rem;
 }
 .gallery figure { margin: 0; }
 .gallery img {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: var(--radius);
   border: 1px solid var(--rule);
 }
 .gallery figcaption {
   font-family: var(--sans);
-  font-size: 0.75rem;
-  color: var(--ink-faint);
-  margin-top: 0.35rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+.running-page .page-title {
+  margin: 0;
+  padding: 5.5rem 0 7rem;
+  text-align: center;
+  font-size: 3.5rem;
+  font-weight: 500;
+}
+.running-page .prose {
+  max-width: none;
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  line-height: 1.65;
+}
+.running-page .prose p { margin: 0 0 1rem; }
+.running-page section { margin-top: 3.5rem; }
+
+@media (max-width: 46rem) {
+  .running-page .page-title {
+    padding: 3.5rem 0 3rem;
+    font-size: 2.5rem;
+  }
+  .gallery {
+    grid-template-columns: 1fr;
+    row-gap: 2.75rem;
+  }
+  .gallery figcaption { font-size: 1.35rem; }
 }
 
 /* --- Profile links row -------------------------------------------------- */

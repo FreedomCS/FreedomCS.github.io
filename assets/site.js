@@ -367,11 +367,49 @@ function renderProfileBits(site) {
     nameEl.innerHTML = `${esc(site.name)}<span class="zh" lang="zh">${esc(site.name_zh)}</span>`;
   }
 
+  const profileLines = $("#profile-lines");
+  if (profileLines) {
+    const positions = site.positions || [];
+    const primary = positions[0];
+    const education = site.education || [];
+    const educationOrg = education[0];
+    const degreeSummary = education.map((e) => {
+      if (e.degree.startsWith("M.")) return "Master";
+      if (e.degree.startsWith("B.")) return "BSc";
+      return e.degree;
+    }).join("/");
+
+    const lines = [];
+    if (primary) {
+      const primaryOrg = primary.org.replace(/\s*\(AMRO\)\s*$/, "");
+      lines.push(
+        `<p>${primary.url ? `<a href="${esc(primary.url)}" rel="noopener">${esc(primaryOrg)}</a>` : esc(primaryOrg)} - ${esc(primary.role)}</p>`
+      );
+    }
+    if (educationOrg) {
+      lines.push(
+        `<p><a href="${esc(educationOrg.url)}" rel="noopener">Tsinghua University</a> - ${esc(degreeSummary)}</p>`
+      );
+    }
+    positions.slice(1).forEach((position) => {
+      lines.push(
+        `<p>${position.url ? `<a href="${esc(position.url)}" rel="noopener">${esc(position.org)}</a>` : esc(position.org)}${position.period ? ` (visiting ${esc(position.period)})` : ""}</p>`
+      );
+    });
+    lines.push(`<p>Email: <a href="mailto:${esc(site.email)}">${esc(site.email)}</a></p>`);
+    profileLines.innerHTML = lines.join("");
+  }
+
   const tag = $("#hero-tagline");
   if (tag) tag.textContent = site.tagline;
 
   const bio = $("#bio");
-  if (bio) bio.innerHTML = (site.bio || []).map((p) => `<p>${p}</p>`).join("");
+  if (bio) {
+    const paragraphs = site.bio || [];
+    bio.innerHTML = bio.classList.contains("profile__bio")
+      ? `<p>${paragraphs.join(" ")}</p>`
+      : paragraphs.map((p) => `<p>${p}</p>`).join("");
+  }
 
   const lede = $("#bio-short");
   if (lede) lede.innerHTML = site.bio_short;
@@ -399,7 +437,9 @@ function renderProfileBits(site) {
   $$(".js-profiles").forEach((el) => {
     el.innerHTML = (site.profiles || []).map((p) =>
       `<li><a href="${esc(p.url)}" rel="noopener">${esc(p.label)}</a></li>`).join("") +
-      `<li><a href="mailto:${esc(site.email)}">Email</a></li>`;
+      (el.closest(".profile__links")
+        ? ""
+        : `<li><a href="mailto:${esc(site.email)}">Email</a></li>`);
   });
 
   $$(".js-disclaimer").forEach((el) => { el.textContent = site.disclaimer; });

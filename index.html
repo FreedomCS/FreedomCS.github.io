@@ -35,10 +35,8 @@
     <a class="brand" href="index.html">Wenzhe Li</a>
     <nav class="nav" aria-label="Main">
       <a href="index.html" aria-current="page">Home</a>
-      <a href="#publications">Publications</a>
       <a href="articles.html">Articles</a>
       <a href="running.html">Running</a>
-      <button class="theme-toggle" type="button">Dark</button>
     </nav>
   </div>
 </header>
@@ -46,19 +44,25 @@
 <main id="main">
   <div class="wrap">
 
-    <section class="hero">
-      <div class="hero__grid">
-        <div>
-          <h1 class="hero__name" id="hero-name">Wenzhe Li</h1>
-          <p class="hero__tagline" id="hero-tagline"></p>
-          <p class="hero__lede" id="bio-short"></p>
-          <ul class="affil" id="affiliations"></ul>
-          <p class="edu-line" id="education-line"></p>
-          <ul class="linkrow js-profiles"></ul>
-        </div>
-        <aside class="hero__aside">
+    <section class="profile">
+      <div class="profile__grid">
+        <div class="profile__portrait">
           <img class="portrait" src="assets/portrait.jpg" alt="Portrait of Wenzhe Li" width="900" height="900">
+        </div>
+        <div class="profile__details">
+          <h1 class="profile__name" id="hero-name">Wenzhe Li</h1>
+          <div class="profile__lines" id="profile-lines"></div>
+        </div>
+        <aside class="profile__logos" aria-label="Tsinghua University affiliations">
+          <img src="assets/logos/logo-physics.png" alt="Tsinghua University Department of Physics">
+          <img src="assets/logos/logo-sem.png" alt="Tsinghua University School of Economics and Management">
+          <img src="assets/logos/logo-pbcsf.png" alt="Tsinghua University PBC School of Finance">
         </aside>
+      </div>
+      <div class="profile__bio" id="bio"></div>
+      <div class="profile__links">
+        <strong>Links:</strong>
+        <ul class="linkrow js-profiles"></ul>
       </div>
     </section>
 
