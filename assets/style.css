@@ -28,9 +28,10 @@
   --new-bg:        #fdf3dd;
 
   --measure: 34rem;
-  /* ~68 characters at the body size — the range the eye tracks without
-     losing its place returning to the start of a line. */
-  --measure-prose: 40rem;
+  /* Reading column: ~75 characters on a laptop, easing to ~82 on a large
+     display so the page does not look sparse without the line becoming hard
+     to track. */
+  --measure-prose: clamp(40rem, 46vw, 44rem);
   --page: 76rem;
   --step: 1.6rem;
   --radius: 3px;
@@ -243,12 +244,14 @@ section + section { margin-top: calc(var(--step) * 2.5); }
 }
 
 .profile__bio {
-  margin-top: 7.5rem;
+  margin-top: 5.5rem;
   /* Was 0.875rem across the full 1160px — about 166 characters per line.
-     Now matches the article body size and sits on a readable measure. */
+     Held to a readable measure and centred under the centred header, so the
+     whitespace falls evenly either side rather than all to the right. */
   font-size: 1.0625rem;
   line-height: 1.75;
   max-width: var(--measure-prose);
+  margin-inline: auto;
 }
 .profile__bio p { margin: 0 0 1.15em; }
 .profile__bio p:last-child { margin-bottom: 0; }
@@ -418,6 +421,17 @@ h1.hero__name {
 
 /* --- Article pages ------------------------------------------------------- */
 
+/* An article page is a single centred column: title, byline, publication
+   line and body all share one axis. The container is narrowed too — at the
+   full 76rem the column sat in the middle of a wide empty field. */
+.article-page .wrap { max-width: 58rem; }
+.article-page .page-title,
+.article-page .byline,
+.article-page .article-meta {
+  max-width: var(--measure-prose);
+  margin-inline: auto;
+}
+
 /* Author line / Chinese subtitle under the article title. */
 .byline {
   font-size: 1.0625rem;
@@ -436,11 +450,12 @@ h1.hero__name {
   max-width: var(--measure-prose);
 }
 
-/* Long-form prose is held to a readable measure. Without this the text runs
-   the full page width — around 136 characters per line, roughly double what
-   the eye tracks comfortably. */
+/* Long-form prose is held to a readable measure and centred. Left-aligned in
+   a full-width container it stranded ~660px of empty space on one side at
+   laptop widths, which reads worse than an over-long line. */
 .article-body {
   max-width: var(--measure-prose);
+  margin-inline: auto;
   font-size: 1.0625rem;
   line-height: 1.75;
 }
@@ -877,8 +892,10 @@ h3 {
   border: 1px solid var(--rule);
   border-radius: var(--radius);
   padding: 0.9rem 1.1rem;
-  margin: 1.75rem 0 0;
-  max-width: var(--measure);
+  margin: 2rem 0 0;
+  /* Full width of its section: a boxed aside reads as a deliberate panel,
+     whereas a narrow box floating left of empty space reads as a mistake. */
+  max-width: none;
 }
 .note a { color: var(--ink-muted); }
 
