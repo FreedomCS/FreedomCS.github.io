@@ -290,6 +290,44 @@ h1.hero__name {
   margin-left: 0.35rem;
 }
 
+.edu-line {
+  font-size: 0.9375rem;
+  color: var(--ink-muted);
+  margin: -0.9rem 0 1.75rem;
+}
+
+/* --- Cities chips (running page) ---------------------------------------- */
+.cities { margin-top: 0.25rem; }
+.cities li {
+  display: inline-block;
+  padding: 0.32rem 0.7rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  color: var(--ink-muted);
+  letter-spacing: 0.02em;
+}
+
+/* --- Photo gallery (running page) ---------------------------------------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 1rem;
+}
+.gallery figure { margin: 0; }
+.gallery img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+}
+.gallery figcaption {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--ink-faint);
+  margin-top: 0.35rem;
+}
+
 /* --- Profile links row -------------------------------------------------- */
 .linkrow {
   display: flex;

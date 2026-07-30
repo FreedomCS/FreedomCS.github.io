@@ -12,6 +12,7 @@
 <meta property="og:title" content="Wenzhe Li — Monetary Policy and Financial Stability">
 <meta property="og:description" content="Senior Economist at AMRO, Singapore. Visiting Scholar at the BIS. Research on monetary policy, financial stability, shadow banking and inflation dynamics.">
 <meta property="og:url" content="https://freedomcs.github.io/">
+<meta property="og:image" content="https://freedomcs.github.io/assets/portrait.jpg">
 <meta name="twitter:card" content="summary">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,10 +35,9 @@
     <a class="brand" href="index.html">Wenzhe Li</a>
     <nav class="nav" aria-label="Main">
       <a href="index.html" aria-current="page">Home</a>
-      <a href="research.html">Research</a>
-      <a href="publications.html">Publications</a>
-      <a href="articles.html">Writing</a>
-      <a href="cv.html">CV</a>
+      <a href="#publications">Publications</a>
+      <a href="articles.html">Articles</a>
+      <a href="running.html">Running</a>
       <button class="theme-toggle" type="button">Dark</button>
     </nav>
   </div>
@@ -53,31 +53,37 @@
           <p class="hero__tagline" id="hero-tagline"></p>
           <p class="hero__lede" id="bio-short"></p>
           <ul class="affil" id="affiliations"></ul>
+          <p class="edu-line" id="education-line"></p>
           <ul class="linkrow js-profiles"></ul>
         </div>
         <aside class="hero__aside">
-          <div class="portrait portrait--placeholder">
-            Add a portrait at<br><code>assets/portrait.jpg</code>
-          </div>
+          <img class="portrait" src="assets/portrait.jpg" alt="Portrait of Wenzhe Li" width="900" height="900">
         </aside>
       </div>
     </section>
 
     <section>
-      <h2>Research areas
-        <span class="h2__aside"><a href="research.html">Read more →</a></span>
-      </h2>
+      <h2>Research areas</h2>
       <div class="themes" id="themes"></div>
     </section>
 
-    <section>
-      <h2>Selected work
-        <span class="h2__aside"><a href="publications.html">All publications →</a></span>
+    <section id="publications">
+      <h2>Publications
+        <span class="h2__aside"><a href="#" id="bibtex-all">BibTeX ↓</a></span>
       </h2>
-      <ul class="pubs" id="featured"></ul>
+      <ul class="filters no-print" id="filters"></ul>
+      <p class="filter-note no-print" id="filter-note"></p>
+      <div id="publications-list"></div>
+      <p class="note">
+        Clicking a title opens the publisher’s page. Where a freely accessible
+        copy exists it is linked at the end of the entry — <strong>pdf</strong>
+        for the published version, <strong>pdf-wp</strong> for the working-paper
+        version. Citation counts come from Google Scholar; for papers written in
+        Chinese, CNKI counts are also given.
+      </p>
     </section>
 
-    <section>
+    <section class="no-print">
       <h2>News</h2>
       <ul class="news" id="news"></ul>
     </section>

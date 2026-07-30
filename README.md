@@ -3,19 +3,22 @@
 Static site. No build step, no dependencies, no framework. Plain HTML, one
 stylesheet, one script, and two JSON data files.
 
+Three pages, mirroring the original site's structure:
+
 ```
-index.html            Home — bio, research areas, selected work, news
-research.html         The four research programmes
-publications.html     Full list, filterable by area, BibTeX export
+index.html            Home — bio, research areas, ALL publications
+                      (filterable, BibTeX), news, about.
+                      Ctrl+P prints it as a clean CV.
 articles.html         Essays and interviews
-cv.html               Print-optimised CV (Ctrl+P → Save as PDF)
+running.html          Running
 
 data/site.json        ← YOU EDIT: bio, affiliations, links, news, essays
 data/publications.json ← YOU EDIT: every paper
 
 assets/style.css      All styling (light + dark + print)
 assets/site.js        Renders the pages from the JSON
-assets/portrait.jpg   ← ADD THIS: your photo (4:5 portrait, ~800×1000px)
+assets/portrait.jpg   Your photo (auto-resized web copy)
+assets/running/       ← optional: running photos, see running.html comment
 ```
 
 ---
@@ -161,7 +164,8 @@ Once live:
 
 ## Still to do
 
-- [ ] Add `assets/portrait.jpg`
+- [ ] Add running photos to `assets/running/` and uncomment the gallery
+      block in `running.html`
 - [ ] Migrate the three essays from Google Sites into local pages
       (currently `articles.html` links out to the old site)
 - [ ] Verify the *Economic Research Journal* working-paper link — the old site

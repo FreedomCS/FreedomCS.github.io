@@ -138,7 +138,7 @@ function pubHTML(pub, themes) {
 
   const themeTags = (pub.themes || [])
     .filter((t) => themes[t])
-    .map((t) => `<a class="tag tag--theme" href="publications.html?theme=${esc(t)}">${esc(themes[t].short)}</a>`)
+    .map((t) => `<a class="tag tag--theme" href="index.html?theme=${esc(t)}#publications">${esc(themes[t].short)}</a>`)
     .join("");
 
   const newTag = pub.is_new ? `<span class="tag tag--new">New</span>` : "";
@@ -266,19 +266,10 @@ function renderThemes(pubData) {
         <h3>${esc(t.label)}</h3>
         <p>${esc(t.blurb)}</p>
         <div class="theme__count">
-          <a href="publications.html?theme=${esc(id)}">${n} ${n === 1 ? "paper" : "papers"} →</a>
+          <a href="?theme=${esc(id)}#publications">${n} ${n === 1 ? "paper" : "papers"} →</a>
         </div>
       </div>`;
   }).join("");
-}
-
-function renderFeatured(pubData) {
-  const el = $("#featured");
-  if (!el) return;
-  const featured = pubData.publications
-    .filter((p) => p.featured)
-    .sort(sortPubs);
-  el.innerHTML = featured.map((p) => pubHTML(p, pubData.themes)).join("");
 }
 
 function renderArticles(site) {
@@ -296,7 +287,7 @@ function renderArticles(site) {
 }
 
 function renderPublications(pubData) {
-  const host = $("#publications");
+  const host = $("#publications-list");
   if (!host) return;
   const { themes, publications } = pubData;
 
@@ -387,13 +378,14 @@ function renderProfileBits(site) {
       </li>`).join("");
   }
 
-  const edu = $("#education");
-  if (edu) {
-    edu.innerHTML = (site.education || []).map((e) => `
-      <li>
-        <span class="role">${esc(e.degree)}</span>,
-        <span class="org">${e.url ? `<a href="${esc(e.url)}" rel="noopener">${esc(e.org)}</a>` : esc(e.org)}</span>
-      </li>`).join("");
+  // Compact one-line education summary, in the spirit of the old site's
+  // "Tsinghua University - Ph.D. in Economics/Master/BSc".
+  const eduLine = $("#education-line");
+  if (eduLine && (site.education || []).length) {
+    const degrees = site.education.map((e) => esc(e.degree)).join(" · ");
+    const org = site.education[0];
+    eduLine.innerHTML =
+      `<a href="${esc(org.url)}" rel="noopener">Tsinghua University</a> — ${degrees}`;
   }
 
   $$(".js-profiles").forEach((el) => {
@@ -412,47 +404,6 @@ function renderProfileBits(site) {
   $$(".js-year").forEach((el) => { el.textContent = new Date().getFullYear(); });
 }
 
-function renderCV(site, pubData) {
-  const host = $("#cv-body");
-  if (!host) return;
-  const { publications, themes } = pubData;
-
-  const block = (title, rows) => `
-    <section class="cv-block">
-      <h2>${esc(title)}</h2>
-      ${rows}
-    </section>`;
-
-  const posRows = [...(site.positions || [])].map((p) => `
-    <div class="cv-row">
-      <div class="cv-row__when">${esc(p.period || (p.current ? "Present" : ""))}</div>
-      <div><strong>${esc(p.role)}</strong><br><span style="color:var(--ink-muted)">${esc(p.org)}</span></div>
-    </div>`).join("");
-
-  // No dates in the source data, so the left column stays empty rather than
-  // repeating the institution that is already named on the right.
-  const eduRows = (site.education || []).map((e) => `
-    <div class="cv-row">
-      <div class="cv-row__when">${esc(e.period || "")}</div>
-      <div><strong>${esc(e.degree)}</strong><br><span style="color:var(--ink-muted)">${esc(e.org)}</span></div>
-    </div>`).join("");
-
-  const pubBlocks = TYPE_ORDER.map((type) => {
-    const list = publications.filter((p) => p.type === type).sort(sortPubs);
-    if (!list.length) return "";
-    return `
-      <div class="pubgroup">
-        <h3 class="pubgroup__title">${esc(TYPE_LABEL[type])}</h3>
-        <ul class="pubs">${list.map((p) => pubHTML(p, themes)).join("")}</ul>
-      </div>`;
-  }).join("");
-
-  host.innerHTML =
-    block("Appointments", posRows) +
-    block("Education", eduRows) +
-    `<section class="cv-block"><h2>Publications</h2>${pubBlocks}</section>`;
-}
-
 /* --- Boot --------------------------------------------------------------- */
 (async function boot() {
   try {
@@ -464,10 +415,8 @@ function renderCV(site, pubData) {
     renderProfileBits(site);
     renderNews(site);
     renderThemes(pubData);
-    renderFeatured(pubData);
     renderArticles(site);
     renderPublications(pubData);
-    renderCV(site, pubData);
     injectSchema(site, pubData.publications);
 
     document.body.dataset.ready = "true";
