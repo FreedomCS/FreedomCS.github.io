@@ -78,13 +78,15 @@ only file you touch — the homepage, publications page and CV all update.
   "language": "in Chinese",             // optional
   "url": "https://publisher-page",
   "links": [{ "label": "pdf", "url": "https://..." }],
-  "citations": { "scholar": 5, "cnki": 12 },
-  "is_new": true                        // shows a "New" badge
+  "citations": { "scholar": 5, "cnki": 12 }
 }
 ```
 
-**Remember to remove `"is_new": true`** from older entries once they aren't new
-anymore — that badge is the one thing that won't age itself.
+**The "New" badge is automatic.** Anything from the last three calendar years,
+including the current one, is badged — in 2026 that means 2024 onwards. It is
+derived from `year` against the clock, so badges appear and expire on their own
+with nothing to maintain. To widen or narrow the window, change `RECENT_YEARS`
+at the top of `assets/site.js`.
 
 ## 3. Editing the bio, news, links
 

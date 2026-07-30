@@ -45,8 +45,7 @@
         "label": "BIS ACC research network on \"Inflation expectations and central bank policy in Asia-Pacific\"",
         "url": "https://www.bis.org/events/accconf2026.htm"
       },
-      "links": [{ "label": "pdf", "url": "https://www.bis.org/publ/work1353.pdf" }],
-      "is_new": true
+      "links": [{ "label": "pdf", "url": "https://www.bis.org/publ/work1353.pdf" }]
     },
     {
       "id": "balance-sheet-framework-2024",
@@ -61,8 +60,7 @@
       "url": "https://onlinelibrary.wiley.com/doi/10.1111/ecaf.12669",
       "links": [
         { "label": "pdf-wp", "url": "https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID3629003_code2620649.pdf?abstractid=3629003&mirid=1" }
-      ],
-      "is_new": true
+      ]
     },
     {
       "id": "shadow-banking-2020-2022",
@@ -84,8 +82,7 @@
         { "label": "slides", "url": "https://www.aof.org.hk/docs/default-source/hkimr/conference-workshop/session-6_1a_wenzhe-li-%2807-17%29.pdf" },
         { "label": "news", "url": "https://www.aof.org.hk/leadership-development/collaborative-events/20240715" }
       ],
-      "citations": { "scholar": 4 },
-      "is_new": true
+      "citations": { "scholar": 4 }
     },
     {
       "id": "shadow-banking-drivers-2021",
@@ -262,8 +259,7 @@
       "url": "https://amro-asia.org/wp-content/uploads/2026/07/AMRO-Cambodia-ACR-2026_SI_1-US-Dollar-Liquidity_20260727.pdf",
       "links": [
         { "label": "pdf", "url": "https://amro-asia.org/wp-content/uploads/2026/07/AMRO-Cambodia-ACR-2026_SI_1-US-Dollar-Liquidity_20260727.pdf" }
-      ],
-      "is_new": true
+      ]
     },
     {
       "id": "cambodia-govt-deposits-2026",
@@ -281,8 +277,7 @@
       "url": "https://amro-asia.org/wp-content/uploads/2026/07/AMRO-Cambodia-ACR-2026_for-Publication_20260727.pdf#page=21.65",
       "links": [
         { "label": "pdf", "url": "https://amro-asia.org/wp-content/uploads/2026/07/AMRO-Cambodia-ACR-2026_for-Publication_20260727.pdf#page=21.65" }
-      ],
-      "is_new": true
+      ]
     },
     {
       "id": "forms-of-money-2025",
@@ -299,8 +294,7 @@
       "links": [
         { "label": "English", "url": "https://sites.google.com/view/liwenzhe/articles/money-perspectives" },
         { "label": "Chinese", "url": "https://sites.google.com/view/liwenzhe/articles/money-perspectives/cn" }
-      ],
-      "is_new": true
+      ]
     },
     {
       "id": "tsinghua-12-years-2019",

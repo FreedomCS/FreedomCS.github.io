@@ -200,22 +200,34 @@ section + section { margin-top: calc(var(--step) * 2.5); }
   text-align: center;
   color: var(--ink);
 }
+/* The name is the largest thing on the site — it was previously smaller than
+   every page title. Set in the serif that carries the rest of the site, with
+   small caps and open letter-spacing rather than plain uppercase. */
 .profile__name {
-  margin: 0 0 1rem;
-  font-family: var(--sans);
-  font-size: 1.75rem;
-  line-height: 1.2;
-  letter-spacing: 0;
+  margin: 0 0 1.15rem;
+  font-family: var(--serif);
+  font-size: clamp(2.1rem, 4.4vw, 2.9rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: 0.055em;
   text-transform: uppercase;
+  font-variant-numeric: lining-nums;
 }
 .profile__name .zh {
-  margin-left: 0.35rem;
-  font-family: var(--sans);
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-family: var(--cjk);
+  font-size: 0.62em;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+  vertical-align: 0.06em;
+  text-transform: none;
 }
 .profile__lines p {
   margin: 0 0 1rem;
-  font-size: 0.875rem;
-  line-height: 1.55;
+  font-size: 0.9375rem;
+  line-height: 1.6;
 }
 .profile__lines p:last-child { margin-bottom: 0; }
 .profile__lines a { color: var(--ink); border-bottom-color: var(--ink-muted); }
@@ -286,10 +298,10 @@ section + section { margin-top: calc(var(--step) * 2.5); }
     width: min(100%, calc(100vw - 3.5rem));
     min-width: 0;
   }
-  .profile__name { font-size: 1.55rem; }
+  .profile__name { letter-spacing: 0.04em; }
   .profile__lines p {
     max-width: 100%;
-    font-size: 0.8rem;
+    font-size: 0.875rem;
     overflow-wrap: anywhere;
   }
   .profile__lines a {
@@ -528,21 +540,25 @@ h1.hero__name {
   border-radius: var(--radius);
   border: 1px solid var(--rule);
 }
+/* A place name, not a heading — it should sit quietly under its photo rather
+   than out-shout the page title. */
 .gallery figcaption {
   font-family: var(--sans);
-  font-size: 1.7rem;
-  font-weight: 600;
-  color: var(--ink);
-  margin-top: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--ink-muted);
+  margin-top: 0.65rem;
   text-align: center;
 }
 
+/* Centred like the rest of this page, but at the same size as every other
+   page title so the site reads as one thing. */
 .running-page .page-title {
-  margin: 0;
-  padding: 5.5rem 0 7rem;
+  margin: 0 auto;
+  padding: 4rem 0 3.25rem;
   text-align: center;
-  font-size: 3.5rem;
-  font-weight: 500;
+  max-width: none;
 }
 /* Centred to sit under the centred title, but held to a readable measure
    rather than the full page width. */
@@ -554,19 +570,17 @@ h1.hero__name {
 }
 .running-page .prose p { margin: 0 0 1.15em; }
 .running-page .prose p:last-child { margin-bottom: 0; }
-.running-page section { margin-top: 3.5rem; }
-.running-page .prose + section { margin-top: 4rem; }
+.running-page section { margin-top: 4rem; }
+/* Text following a photo row needs room to read as its own passage rather
+   than as an oversized caption. */
+.running-page section + .prose { margin-top: 4rem; }
 
 @media (max-width: 46rem) {
-  .running-page .page-title {
-    padding: 3.5rem 0 3rem;
-    font-size: 2.5rem;
-  }
+  .running-page .page-title { padding: 2.5rem 0 2rem; }
   .gallery {
     grid-template-columns: 1fr;
-    row-gap: 2.75rem;
+    row-gap: 2rem;
   }
-  .gallery figcaption { font-size: 1.35rem; }
 }
 
 /* --- Profile links row -------------------------------------------------- */

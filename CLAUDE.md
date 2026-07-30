@@ -96,10 +96,14 @@ background is fine; recolouring or reconstructing them is not.
 | **Busuanzi counter removed** | Showed a *global* shared tally (10.4M), and counts over `http://` which breaks on HTTPS. Replaced by GoatCounter, currently off. See README §7. |
 | **Repo `FreedomCS.github.io`** | `liwenzhe`, `wenzheli`, `wenzhe-li` are all taken by other GitHub users; `liwenzhe.com` is registered. A custom domain (`wenzheli.com` looked free) is the only route to a clean URL. User chose to keep `freedomcs` for now and revisit. |
 
-Still open: research-theme filters exist on publications but the themes
-*section* was removed from the home page — tags still work as filters.
-The `articles.html` intro paragraph is Claude's wording, not the user's,
-and he may want it gone.
+| **"New" badge is derived, not stored** | Was a manual `is_new` flag on 6 entries that would silently rot. Now computed from `year` against the clock: last 3 calendar years including the current one (`RECENT_YEARS` in `site.js`). Nothing to maintain. |
+| **Prose held to `--measure-prose` (40rem)** | Body text ran the full 1160px — 136–178 characters per line. Now ~75. Applies to article bodies, the home bio and the Running page. |
+| **One body size (17px/1.75)** | Was 13px, 14px or 17px depending on the page. |
+| **Name is the serif masthead** | Was 1.75rem uppercase sans — smaller than every page title. Now clamp(2.1–2.9rem) in the serif with letter-spacing, 李文喆 alongside in the CJK serif. |
+
+Resolved since: the `articles.html` intro (Claude's wording) is removed,
+and the 20 dead research-area tags are gone from the publication list.
+The `themes` data stays in `publications.json` if filtering ever returns.
 
 ---
 

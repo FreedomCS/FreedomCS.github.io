@@ -26,6 +26,17 @@ async function loadJSON(path) {
   return res.json();
 }
 
+/* How many years count as recent, including the current one: 2026 marks
+   2024–2026. Derived from the clock rather than a flag in the data, so badges
+   expire on their own instead of needing to be cleared by hand. */
+const RECENT_YEARS = 3;
+
+function isRecent(year) {
+  const y = Number(year);
+  if (!y) return false;
+  return y >= new Date().getFullYear() - (RECENT_YEARS - 1);
+}
+
 const TYPE_LABEL = {
   journal: "Peer-Reviewed Journal Publications",
   working: "Working Paper",
@@ -115,7 +126,8 @@ function pubHTML(pub, themes) {
   // with the multi-page layout, so they were 20 dead links competing with the
   // paper titles. `themes` in publications.json still groups the work and can
   // drive a filter again if one is reintroduced.
-  const newTag = pub.is_new ? `<span class="tag tag--new">New</span>` : "";
+  const newTag = isRecent(pub.year)
+    ? `<span class="tag tag--new">New</span>` : "";
 
   const meta = [linksHTML(pub), citesHTML(pub), newTag]
     .filter(Boolean).join("");
