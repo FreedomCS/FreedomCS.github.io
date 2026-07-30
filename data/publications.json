@@ -59,7 +59,7 @@
       "pages": "501–526",
       "url": "https://onlinelibrary.wiley.com/doi/10.1111/ecaf.12669",
       "links": [
-        { "label": "pdf-wp", "url": "https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID3629003_code2620649.pdf?abstractid=3629003&mirid=1" }
+        { "label": "pdf-wp", "url": "https://drive.google.com/file/d/1SfhAMLWKlq8FJXaukjU4AeoNDmkWmd0o/view?usp=sharing" }
       ]
     },
     {
@@ -98,7 +98,7 @@
       "language": "in Chinese",
       "url": "https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&filename=JJXJ202103011&dbname=CJFDAUTO",
       "links": [
-        { "label": "pdf-wp", "url": "http://www.erj.cn/cn/lwInfo.aspx?m=20100921113738390893&n=20190416145810083450" }
+        { "label": "pdf-wp", "url": "https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID3629003_code2620649.pdf?abstractid=3629003&mirid=1" }
       ],
       "citations": { "cnki": 27, "scholar": 7 }
     },
@@ -116,7 +116,7 @@
       "language": "in Chinese",
       "url": "https://ces.xmu.edu.cn/CN/abstract/abstract524.shtml",
       "links": [
-        { "label": "pdf", "url": "https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID3629003_code2620649.pdf?abstractid=3629003&mirid=1" }
+        { "label": "pdf", "url": "https://ssrn.com/abstract=5345054" }
       ],
       "citations": { "cnki": 8, "scholar": 3 }
     },
@@ -190,7 +190,7 @@
       "pages": "106–124",
       "url": "https://onlinelibrary.wiley.com/doi/full/10.1111/ecaf.12273",
       "presented": {
-        "label": "BIS 10th Annual Workshop of the Asian Research Networks, Chengdu, 2017"
+        "label": "BIS 10th Annual Workshop of the Asian Research Networks in Chengdu, 2017"
       },
       "links": [
         { "label": "pdf", "url": "https://drive.google.com/file/d/1q-M85_S-rwUsO6rJs3PEyPyQyL2O33lq/view?usp=sharing" }
@@ -312,7 +312,7 @@
       "note_zh": "清华校友通讯，2020, 82(2): 43–45（授权转载发表）",
       "url": "https://www.tsinghua.org.cn/info/3259/41230.htm",
       "links": [
-        { "label": "pdf", "url": "https://www.tsinghua.org.cn/info/3259/41230.htm" }
+        { "label": "pdf", "url": "https://drive.google.com/file/d/1wHBatWUYcHjXrsOXici_TpsPvAMaEMzi/view?usp=drive_link" }
       ]
     },
     {
