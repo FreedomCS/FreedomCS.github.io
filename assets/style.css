@@ -270,16 +270,24 @@ section + section { margin-top: calc(var(--step) * 2.5); }
   margin: 0;
 }
 .profile__links .linkrow li { display: block; }
+/* Outlined in the site accent rather than filled: as solid purple these were
+   the loudest element on the page and sat directly above the publication
+   titles, which should carry the most weight. */
 .profile__links .linkrow a {
   display: block;
   padding: 0.55rem 0.75rem;
-  border: 0;
+  border: 1px solid var(--accent);
   border-radius: 2px;
-  background: #603482;
-  color: #fff;
+  background: none;
+  color: var(--accent);
+  font-weight: 500;
   text-align: center;
+  transition: background var(--transition), color var(--transition);
 }
-.profile__links .linkrow a:hover { background: #4f286e; }
+.profile__links .linkrow a:hover {
+  background: var(--accent);
+  color: #fff;
+}
 
 @media (max-width: 68rem) {
   .profile__grid {
@@ -909,10 +917,24 @@ h3 {
   border-radius: var(--radius);
   padding: 0.9rem 1.1rem;
   margin: 2rem 0 0;
-  /* Full width of its section: a boxed aside reads as a deliberate panel,
-     whereas a narrow box floating left of empty space reads as a mistake. */
   max-width: none;
 }
+
+/* The note under the publication list: plain small text, as on the original
+   site. A bordered panel gave a footnote about download conventions more
+   weight than the papers it describes. */
+.pub-note {
+  font-size: 0.8125rem;
+  color: var(--ink-faint);
+  line-height: 1.65;
+  margin: 2.25rem 0 0;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+.pub-note strong { color: var(--ink-muted); font-weight: 600; }
+.pub-note a { color: var(--ink-faint); border-bottom-color: var(--rule-strong); }
+.pub-note a:hover { color: var(--accent); }
 .note a { color: var(--ink-muted); }
 
 /* --- Article cards ------------------------------------------------------ */
