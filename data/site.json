@@ -1,0 +1,128 @@
+{
+  "_README": "Personal details, affiliations, links, essays and news. Edit here — every page reads from this file.",
+
+  "name": "Wenzhe Li",
+  "name_zh": "李文喆",
+  "tagline": "Monetary policy · Financial stability · Inflation dynamics",
+  "email": "liwenzhe@tsinghua.org.cn",
+  "location": "Singapore",
+  "photo": "assets/portrait.jpg",
+
+  "positions": [
+    {
+      "role": "Senior Economist",
+      "org": "ASEAN+3 Macroeconomic Research Office (AMRO)",
+      "url": "https://amro-asia.org/",
+      "current": true
+    },
+    {
+      "role": "Visiting Scholar",
+      "org": "Bank for International Settlements",
+      "url": "https://www.bis.org/",
+      "period": "2025–2026",
+      "current": true
+    },
+    {
+      "role": "Visiting Scholar",
+      "org": "Princeton University",
+      "url": "https://economics.princeton.edu/",
+      "period": "2016–2017"
+    }
+  ],
+
+  "education": [
+    {
+      "degree": "Ph.D. in Economics",
+      "org": "Tsinghua University",
+      "url": "https://www.tsinghua.edu.cn/en/"
+    },
+    {
+      "degree": "M.Econ. in Finance",
+      "org": "PBC School of Finance, Tsinghua University",
+      "url": "https://eng.pbcsf.tsinghua.edu.cn/"
+    },
+    {
+      "degree": "B.Sc. in Mathematics and Physics",
+      "org": "Tsinghua University",
+      "url": "https://www.phys.tsinghua.edu.cn/phyen/"
+    }
+  ],
+
+  "profiles": [
+    { "label": "Google Scholar", "url": "https://scholar.google.com/citations?user=TOMxKgsAAAAJ&hl=en" },
+    { "label": "SSRN", "url": "https://ssrn.com/author=2620649" },
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/wenzhe/" },
+    { "label": "GitHub", "url": "https://github.com/FreedomCS" }
+  ],
+
+  "bio_short": "I work at the intersection of monetary policy, financial stability and macroeconomic research — currently as a Senior Economist at AMRO in Singapore, and as a Visiting Scholar at the BIS.",
+
+  "bio": [
+    "I am a Senior Economist at the <a href=\"https://amro-asia.org/\">ASEAN+3 Macroeconomic Research Office</a> in Singapore, where I work with policymakers and academics across the region and translate macro-financial analysis into policy advice. I am currently also a Visiting Scholar at the <a href=\"https://www.bis.org/\">Bank for International Settlements</a>.",
+    "My career spans international organisations, China's central bank, and the investment bank CICC — covering policy formulation, team management, and international cooperation with the BIS, IMF and major central banks. I was trained at <a href=\"https://www.tsinghua.edu.cn/en/\">Tsinghua University</a>, where I read Mathematics and Physics before an M.Econ. in Finance and a Ph.D. in Economics, with research stays at <a href=\"https://economics.princeton.edu/\">Princeton</a> and the BIS.",
+    "I am drawn to the defining questions of the field: how inflation and credit evolve, how monetary transmission works across different financial structures, and what institutions can do to preserve stability."
+  ],
+
+  "news": [
+    {
+      "date": "2026-07",
+      "html": "Two Selected Issues studies on <strong>US dollar liquidity</strong> and <strong>government deposit fluctuations</strong> published in AMRO's <a href=\"https://amro-asia.org/wp-content/uploads/2026/07/AMRO-Cambodia-ACR-2026_for-Publication_20260727.pdf\">Cambodia Annual Consultation Report 2026</a>."
+    },
+    {
+      "date": "2026-05",
+      "html": "<em>The Strength of the Inflation-Output Link in China</em> (with Mikael Juselius) released as <a href=\"https://www.bis.org/publ/work1353.htm\">BIS Working Paper No 1353</a>."
+    },
+    {
+      "date": "2025",
+      "html": "Began a visiting scholar appointment at the <a href=\"https://www.bis.org/\">Bank for International Settlements</a> (2025–2026)."
+    },
+    {
+      "date": "2025-01",
+      "html": "<em>Evolution of Physical Forms of Money and Three Perspectives of Its Definition</em> published in <em>China Finance</em>. <a href=\"articles.html#money-perspectives\">Read the essay →</a>"
+    },
+    {
+      "date": "2024",
+      "html": "<em>China's Shadow Banking in 2020–2022</em> published in <a href=\"https://www.nature.com/articles/s41599-024-02733-y\"><em>Humanities and Social Sciences Communications</em></a>, and presented at the joint HKIMR–IMF–BIS–AMRO conference in Hong Kong."
+    }
+  ],
+
+  "articles": [
+    {
+      "id": "money-perspectives",
+      "title": "Money Perspectives",
+      "title_zh": "货币的形态演变和三个层次",
+      "year": 2025,
+      "blurb": "On the evolving physical form of money and the three levels at which it can be defined. Published in <em>China Finance</em>.",
+      "links": [
+        { "label": "English", "url": "https://sites.google.com/view/liwenzhe/articles/money-perspectives" },
+        { "label": "中文", "url": "https://sites.google.com/view/liwenzhe/articles/money-perspectives/cn" }
+      ]
+    },
+    {
+      "id": "tsinghua-12-years",
+      "title": "My 12 Years of Study at Tsinghua University",
+      "title_zh": "我在清华大学求学十二年",
+      "year": 2019,
+      "blurb": "A personal account of twelve years at Tsinghua — from Mathematics and Physics to a Ph.D. in Economics. Published in <em>Financial View</em> and republished in the <em>Tsinghua Alumni Gazette</em>.",
+      "links": [
+        { "label": "中文", "url": "https://www.tsinghua.org.cn/info/3259/41230.htm" }
+      ]
+    },
+    {
+      "id": "wudaokou-interview",
+      "title": "Interview: The Wudaokou Tradition",
+      "year": null,
+      "blurb": "An interview on the intellectual tradition of Wudaokou and the PBC School of Finance.",
+      "links": [
+        { "label": "Read", "url": "https://sites.google.com/view/liwenzhe/articles/interview-wudaokou-tradition" }
+      ]
+    }
+  ],
+
+  "bookmarks": [
+    { "label": "Tirupam Goel", "url": "https://sites.google.com/site/tirupam/" },
+    { "label": "Jiayue Zhang", "url": "https://jzhangg.github.io/" }
+  ],
+
+  "disclaimer": "The views expressed on this website are my own and are not necessarily those of AMRO, the BIS, or their member authorities."
+}

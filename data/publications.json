@@ -1,0 +1,364 @@
+{
+  "_README": "SINGLE SOURCE OF TRUTH. To add a paper: copy an existing block, edit it, save. Nothing else needs changing. Fields: id (unique slug), type (journal|working|other), themes (array of theme ids from research.json), year, title, title_zh (optional), authors (omit if solo), venue, venue_zh (optional), volume, pages, url (publisher page), links (array of {label,url}), citations ({scholar,cnki}), note (optional extra line), featured (true = shows on homepage), presented (optional).",
+
+  "themes": {
+    "shadow-banking": {
+      "label": "Shadow banking",
+      "short": "Shadow banking",
+      "blurb": "A measurement-first research programme: defining what shadow banking is in the Chinese context, sizing it consistently over time, and then tracing how it reshapes monetary policy transmission and financial stability."
+    },
+    "monetary-transmission": {
+      "label": "Monetary policy transmission and frameworks",
+      "short": "Monetary transmission",
+      "blurb": "How monetary policy actually propagates when financial structures differ from the textbook case — targeted instruments, balance-sheet based analysis, and what central bank legislation implies for the mandates policymakers can pursue."
+    },
+    "inflation-dynamics": {
+      "label": "Inflation dynamics",
+      "short": "Inflation dynamics",
+      "blurb": "The empirical strength of the inflation–output relationship and the microeconomic structure behind divergent producer and consumer price movements."
+    },
+    "money-capital-markets": {
+      "label": "Money and capital market development",
+      "short": "Money & capital markets",
+      "blurb": "The nature and evolving physical form of money, and the macro-financial preconditions — low inflation, sustainable public debt — under which deep capital markets emerge."
+    }
+  },
+
+  "publications": [
+    {
+      "id": "inflation-output-china-2026",
+      "type": "working",
+      "themes": ["inflation-dynamics"],
+      "year": 2026,
+      "featured": true,
+      "title": "The Strength of the Inflation-Output Link in China",
+      "authors": [
+        { "name": "Wenzhe Li", "self": true },
+        { "name": "Mikael Juselius", "url": "https://www.bis.org/author/mikael_juselius.htm" }
+      ],
+      "venue": "BIS Working Papers",
+      "volume": "No 1353",
+      "publisher": "Bank for International Settlements",
+      "url": "https://www.bis.org/publ/work1353.htm",
+      "date": "May 28, 2026",
+      "presented": {
+        "label": "BIS ACC research network on \"Inflation expectations and central bank policy in Asia-Pacific\"",
+        "url": "https://www.bis.org/events/accconf2026.htm"
+      },
+      "links": [{ "label": "pdf", "url": "https://www.bis.org/publ/work1353.pdf" }],
+      "is_new": true
+    },
+    {
+      "id": "balance-sheet-framework-2024",
+      "type": "journal",
+      "themes": ["monetary-transmission"],
+      "year": 2024,
+      "featured": true,
+      "title": "Using the Balance Sheet Framework for Monetary Analysis: The Case of China",
+      "venue": "Economic Affairs",
+      "volume": "44 (3)",
+      "pages": "501–526",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1111/ecaf.12669",
+      "links": [
+        { "label": "pdf-wp", "url": "https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID3629003_code2620649.pdf?abstractid=3629003&mirid=1" }
+      ],
+      "is_new": true
+    },
+    {
+      "id": "shadow-banking-2020-2022",
+      "type": "journal",
+      "themes": ["shadow-banking"],
+      "year": 2024,
+      "featured": true,
+      "title": "China's Shadow Banking in 2020–2022: An Empirical Study",
+      "venue": "Humanities and Social Sciences Communications",
+      "volume": "11 (282)",
+      "pages": "1–14",
+      "url": "https://www.nature.com/articles/s41599-024-02733-y",
+      "presented": {
+        "label": "Conference co-organized by HKAoF/HKIMR, IMF, BIS and AMRO, Hong Kong, 2024",
+        "url": "https://www.aof.org.hk/research/HKIMR/conferences-workshops/previous-conferences-workshops/2024/lists/hkimr-conference-workshop/joint-conference-on-safeguarding-global-financial-stability-in-a-new-era"
+      },
+      "links": [
+        { "label": "pdf", "url": "http://rdcu.be/dy1rB" },
+        { "label": "slides", "url": "https://www.aof.org.hk/docs/default-source/hkimr/conference-workshop/session-6_1a_wenzhe-li-%2807-17%29.pdf" },
+        { "label": "news", "url": "https://www.aof.org.hk/leadership-development/collaborative-events/20240715" }
+      ],
+      "citations": { "scholar": 4 },
+      "is_new": true
+    },
+    {
+      "id": "shadow-banking-drivers-2021",
+      "type": "journal",
+      "themes": ["shadow-banking"],
+      "year": 2021,
+      "title": "Economic Analysis of China's Shadow Banking: Development Drivers",
+      "title_zh": "中国影子银行的经济学分析：发展驱动因素",
+      "venue": "Economist",
+      "venue_zh": "经济学家",
+      "volume": "267 (3)",
+      "pages": "91–100",
+      "language": "in Chinese",
+      "url": "https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&filename=JJXJ202103011&dbname=CJFDAUTO",
+      "links": [
+        { "label": "pdf-wp", "url": "http://www.erj.cn/cn/lwInfo.aspx?m=20100921113738390893&n=20190416145810083450" }
+      ],
+      "citations": { "cnki": 27, "scholar": 7 }
+    },
+    {
+      "id": "shadow-banking-monetary-policy-2020",
+      "type": "journal",
+      "themes": ["shadow-banking", "monetary-transmission"],
+      "year": 2020,
+      "title": "Economics of China's Shadow Banking: Impact on Monetary Policy",
+      "title_zh": "中国影子银行的经济学分析：对货币政策调控的影响",
+      "venue": "China Economic Studies",
+      "venue_zh": "中国经济问题",
+      "volume": "322 (5)",
+      "pages": "55–70",
+      "language": "in Chinese",
+      "url": "https://ces.xmu.edu.cn/CN/abstract/abstract524.shtml",
+      "links": [
+        { "label": "pdf", "url": "https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID3629003_code2620649.pdf?abstractid=3629003&mirid=1" }
+      ],
+      "citations": { "cnki": 8, "scholar": 3 }
+    },
+    {
+      "id": "shadow-banking-financial-stability-2020",
+      "type": "journal",
+      "themes": ["shadow-banking"],
+      "year": 2020,
+      "title": "Economics of China's Shadow Banking: The Impact on Financial Stability",
+      "title_zh": "中国影子银行的经济学分析：对金融稳定的影响",
+      "venue": "Financial Regulation Research",
+      "venue_zh": "金融监管研究",
+      "volume": "101 (5)",
+      "pages": "31–47",
+      "language": "in Chinese",
+      "url": "https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&filename=JRJG202005003&dbname=CJFDAUTODAY",
+      "note": "China Social Science Excellence of RUC (CSSE) full-text republication, <em>Finance &amp; Insurance</em>, 2020, (10), 16–26.",
+      "note_zh": "人大复印报刊资料全文转载，《金融与保险》2020, (10), 16–26",
+      "links": [
+        { "label": "republication", "url": "https://www.rdfybk.com/qk/detail?DH=F62&NF=2020&QH=10" }
+      ],
+      "citations": { "cnki": 42, "scholar": 2 }
+    },
+    {
+      "id": "shadow-banking-definition-2019",
+      "type": "journal",
+      "themes": ["shadow-banking"],
+      "year": 2019,
+      "featured": true,
+      "title": "Economics of China's Shadow Banking: Definition, Composition, and Measurement",
+      "title_zh": "中国影子银行的经济学分析：定义、构成和规模测算",
+      "venue": "Journal of Financial Research",
+      "venue_zh": "金融研究",
+      "volume": "465 (3)",
+      "pages": "53–73",
+      "language": "in Chinese",
+      "url": "http://www.jryj.org.cn/CN/Y2019/V465/I3/53",
+      "links": [{ "label": "pdf", "url": "http://www.jryj.org.cn/CN/Y2019/V465/I3/53#1" }],
+      "citations": { "cnki": 249, "scholar": 19 }
+    },
+    {
+      "id": "ppi-cpi-dsge-2018",
+      "type": "journal",
+      "themes": ["inflation-dynamics"],
+      "year": 2018,
+      "title": "Microeconomic Explanation to China's PPI and CPI Dynamics — An Analytical Framework Based on DSGE Model",
+      "title_zh": "对我国PPI与CPI走势的微观解释——一个基于DSGE模型的分析框架",
+      "authors": [
+        { "name": "Wenzhe Li", "self": true },
+        { "name": "Bin Li" }
+      ],
+      "venue": "Public Finance Research",
+      "venue_zh": "财政研究",
+      "volume": "427 (9)",
+      "pages": "15–31",
+      "language": "in Chinese",
+      "url": "http://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&filename=CZYJ201809002&dbname=CJFDPREP",
+      "links": [
+        { "label": "pdf-wp", "url": "https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID3221691_code2620649.pdf?abstractid=3221691&mirid=1" }
+      ],
+      "citations": { "cnki": 8 }
+    },
+    {
+      "id": "targeted-monetary-policy-2018",
+      "type": "journal",
+      "themes": ["monetary-transmission"],
+      "year": 2018,
+      "title": "Does Targeted Monetary Policy Matter? A Perspective from China",
+      "venue": "Economic Affairs",
+      "volume": "38 (1)",
+      "pages": "106–124",
+      "url": "https://onlinelibrary.wiley.com/doi/full/10.1111/ecaf.12273",
+      "presented": {
+        "label": "BIS 10th Annual Workshop of the Asian Research Networks, Chengdu, 2017"
+      },
+      "links": [
+        { "label": "pdf", "url": "https://drive.google.com/file/d/1q-M85_S-rwUsO6rJs3PEyPyQyL2O33lq/view?usp=sharing" }
+      ],
+      "citations": { "scholar": 9 }
+    },
+
+    {
+      "id": "monetary-policy-mandates-2024",
+      "type": "working",
+      "themes": ["monetary-transmission"],
+      "year": 2024,
+      "title": "What Determines Monetary Policy Mandates in Central Bank Legislation? By Legal Tradition or Economic Considerations?",
+      "venue": "SSRN",
+      "date": "August 27, 2024",
+      "url": "http://dx.doi.org/10.2139/ssrn.4938363",
+      "links": [
+        { "label": "pdf", "url": "https://papers.ssrn.com/sol3/Delivery.cfm/4938363.pdf?abstractid=4938363" }
+      ]
+    },
+    {
+      "id": "shadow-banking-growth-factors-wp-2019",
+      "type": "working",
+      "themes": ["shadow-banking"],
+      "year": 2019,
+      "title": "Economics of China's Shadow Banking: Driving Growth Factors",
+      "title_zh": "中国影子银行的经济学分析：发展驱动因素",
+      "venue": "Economic Research Journal Working Paper Series",
+      "venue_zh": "《经济研究》工作论文",
+      "volume": "W1363",
+      "language": "in Chinese",
+      "url": "http://www.erj.cn/cn/lwInfo.aspx?m=20100921113738390893&n=20190416145810083450",
+      "links": [
+        { "label": "pdf", "url": "http://www.erj.cn/cn/lwInfo.aspx?m=20100921113738390893&n=20190416145810083450" }
+      ]
+    },
+    {
+      "id": "limit-of-evil-2019",
+      "type": "working",
+      "themes": ["money-capital-markets", "inflation-dynamics"],
+      "year": 2019,
+      "title": "The Limit of Evil: Effects of Inflation and Public Debt on Capital Market Development",
+      "authors": [
+        { "name": "David Leung" },
+        { "name": "Wenzhe Li", "self": true },
+        { "name": "Alfred Wong" },
+        { "name": "Jiayue Zhang", "url": "https://jzhangg.github.io/" }
+      ],
+      "venue": "Hong Kong Monetary Authority Research Memorandum",
+      "volume": "02/2019",
+      "url": "https://www.hkma.gov.hk/media/eng/publication-and-research/research/research-memorandums/2019/RM02-2019.pdf",
+      "links": [
+        { "label": "pdf", "url": "https://www.hkma.gov.hk/media/eng/publication-and-research/research/research-memorandums/2019/RM02-2019.pdf" }
+      ]
+    },
+
+    {
+      "id": "cambodia-usd-liquidity-2026",
+      "type": "other",
+      "themes": ["monetary-transmission"],
+      "year": 2026,
+      "title": "Assessing US Dollar Liquidity Conditions in Cambodia's Banking System",
+      "venue": "AMRO Annual Consultation Report — Cambodia 2026",
+      "volume": "Selected Issues 1",
+      "pages": "43–46",
+      "url": "https://amro-asia.org/wp-content/uploads/2026/07/AMRO-Cambodia-ACR-2026_SI_1-US-Dollar-Liquidity_20260727.pdf",
+      "links": [
+        { "label": "pdf", "url": "https://amro-asia.org/wp-content/uploads/2026/07/AMRO-Cambodia-ACR-2026_SI_1-US-Dollar-Liquidity_20260727.pdf" }
+      ],
+      "is_new": true
+    },
+    {
+      "id": "cambodia-govt-deposits-2026",
+      "type": "other",
+      "themes": ["monetary-transmission"],
+      "year": 2026,
+      "title": "Impact of Government Deposit Fluctuations on Banking System Liquidity",
+      "authors": [
+        { "name": "Wenzhe Li", "self": true },
+        { "name": "Guohua Huang", "url": "https://amro-asia.org/authors/guohua-huang" }
+      ],
+      "venue": "AMRO Annual Consultation Report — Cambodia 2026",
+      "volume": "Box B",
+      "pages": "21–23",
+      "url": "https://amro-asia.org/wp-content/uploads/2026/07/AMRO-Cambodia-ACR-2026_for-Publication_20260727.pdf#page=21.65",
+      "links": [
+        { "label": "pdf", "url": "https://amro-asia.org/wp-content/uploads/2026/07/AMRO-Cambodia-ACR-2026_for-Publication_20260727.pdf#page=21.65" }
+      ],
+      "is_new": true
+    },
+    {
+      "id": "forms-of-money-2025",
+      "type": "other",
+      "themes": ["money-capital-markets"],
+      "year": 2025,
+      "title": "Evolution of Physical Forms of Money and Three Perspectives of Its Definition",
+      "title_zh": "货币的形态演变和三个层次",
+      "venue": "China Finance",
+      "venue_zh": "中国金融",
+      "volume": "1040 (2)",
+      "pages": "91–92",
+      "language": "in Chinese",
+      "links": [
+        { "label": "English", "url": "https://sites.google.com/view/liwenzhe/articles/money-perspectives" },
+        { "label": "Chinese", "url": "https://sites.google.com/view/liwenzhe/articles/money-perspectives/cn" }
+      ],
+      "is_new": true
+    },
+    {
+      "id": "tsinghua-12-years-2019",
+      "type": "other",
+      "themes": [],
+      "year": 2019,
+      "title": "My 12 Years of Study at Tsinghua University",
+      "title_zh": "我在清华大学求学十二年",
+      "venue": "Financial View",
+      "venue_zh": "金融博览",
+      "volume": "(12)",
+      "pages": "88–90",
+      "language": "in Chinese",
+      "note": "Republished with permission in <em>Tsinghua Alumni Gazette</em>, 2020, 82(2), 43–45.",
+      "note_zh": "清华校友通讯，2020, 82(2): 43–45（授权转载发表）",
+      "url": "https://www.tsinghua.org.cn/info/3259/41230.htm",
+      "links": [
+        { "label": "pdf", "url": "https://www.tsinghua.org.cn/info/3259/41230.htm" }
+      ]
+    },
+    {
+      "id": "cgfs63-2019",
+      "type": "other",
+      "themes": ["monetary-transmission"],
+      "year": 2019,
+      "title": "Unconventional Monetary Policy Tools: A Cross-country Analysis",
+      "institution": "Bank for International Settlements, Committee on the Global Financial System",
+      "venue": "BIS CGFS Papers",
+      "volume": "No. 63",
+      "role": "as Member of the Working Group",
+      "url": "https://www.bis.org/publ/cgfs63.htm",
+      "links": [{ "label": "pdf", "url": "https://www.bis.org/publ/cgfs63.pdf" }]
+    },
+    {
+      "id": "cgfs62-2019",
+      "type": "other",
+      "themes": ["money-capital-markets"],
+      "year": 2019,
+      "title": "Establishing Viable Capital Markets",
+      "institution": "Bank for International Settlements, Committee on the Global Financial System",
+      "venue": "BIS CGFS Papers",
+      "volume": "No. 62",
+      "role": "as Member of the Working Group",
+      "url": "https://www.bis.org/publ/cgfs62.htm",
+      "links": [{ "label": "pdf", "url": "https://www.bis.org/publ/cgfs62.pdf" }]
+    },
+    {
+      "id": "mktc07-2016",
+      "type": "other",
+      "themes": ["money-capital-markets"],
+      "year": 2016,
+      "title": "Electronic Trading in Fixed Income Markets",
+      "institution": "Bank for International Settlements, Markets Committee",
+      "venue": "BIS Markets Committee Papers",
+      "volume": "No. 7",
+      "role": "as Member of the Study Group",
+      "url": "https://www.bis.org/publ/mktc07.htm",
+      "links": [{ "label": "pdf", "url": "https://www.bis.org/publ/mktc07.pdf" }]
+    }
+  ]
+}
