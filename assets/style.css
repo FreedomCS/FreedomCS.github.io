@@ -274,6 +274,31 @@ section + section { margin-top: calc(var(--step) * 2.5); }
   max-height: 3.2rem;
   object-fit: contain;
 }
+
+/* The official logos are dark artwork drawn for white stationery, so in dark
+   mode they need their own light card rather than the page background —
+   recolouring them would misrepresent the institutions' marks. */
+@media (prefers-color-scheme: dark) {
+  .profile__logos img {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 0.4rem 0.55rem;
+    box-sizing: border-box;
+    max-height: 3.9rem;
+  }
+}
+:root[data-theme="dark"] .profile__logos img {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 0.4rem 0.55rem;
+  box-sizing: border-box;
+  max-height: 3.9rem;
+}
+:root[data-theme="light"] .profile__logos img {
+  background: none;
+  padding: 0;
+  max-height: 3.2rem;
+}
 .profile__bio {
   margin-top: 7.5rem;
   font-size: 0.875rem;
