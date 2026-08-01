@@ -24,8 +24,12 @@
   --accent:        #7a2e2e;
   --accent-soft:   #f0e4e4;
   --accent-ink:    #5c2222;
-  --new:           #8a5a00;
-  --new-bg:        #fdf3dd;
+  /* "New" badge. Was amber (#8a5a00 on #fdf3dd) — a third colour family
+     beside the oxblood accent and the warm greys, and with seven badges on
+     the page it read as a warning label competing with the paper titles.
+     Now a tint of the accent, so the palette stays to two families. */
+  --new:           var(--accent-ink);
+  --new-bg:        var(--accent-soft);
 
   --measure: 34rem;
   /* Prose spans the full container by author preference. Typographic
@@ -91,6 +95,9 @@ a:focus-visible {
 main { padding-bottom: 5rem; }
 
 section + section { margin-top: calc(var(--step) * 2.5); }
+/* The profile is a header, not a peer of the sections below it, so the
+   publications should follow it more closely than section-to-section. */
+.profile + section { margin-top: calc(var(--step) * 1.6); }
 
 /* --- Skip link ---------------------------------------------------------- */
 .skip {
@@ -180,8 +187,11 @@ section + section { margin-top: calc(var(--step) * 2.5); }
 }
 
 /* --- Google Site profile composition ----------------------------------- */
+/* Spacing above the publications is deliberately tighter than it looks it
+   should be: at the earlier values the first paper sat 944px down, so a
+   laptop visitor saw the profile and no work at all before scrolling. */
 .profile {
-  padding: 5rem 0 0;
+  padding: 2.5rem 0 0;
   font-family: var(--sans);
 }
 .profile__grid {
@@ -250,7 +260,7 @@ section + section { margin-top: calc(var(--step) * 2.5); }
 }
 
 .profile__bio {
-  margin-top: 5.5rem;
+  margin-top: 2.5rem;
   font-size: 1.0625rem;
   line-height: 1.75;
   max-width: var(--measure-prose);
@@ -266,7 +276,7 @@ section + section { margin-top: calc(var(--step) * 2.5); }
   grid-template-columns: 10rem 1fr;
   align-items: center;
   gap: 2rem;
-  margin-top: 3.25rem;
+  margin-top: 2rem;
   font-size: 0.875rem;
 }
 .profile__links .linkrow {
