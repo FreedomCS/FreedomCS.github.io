@@ -279,10 +279,13 @@ section + section { margin-top: calc(var(--step) * 2.5); }
   margin-top: 2rem;
   font-size: 0.875rem;
 }
+/* Sized to their labels rather than stretched into equal columns, which left
+   a lot of empty space inside each button. Wraps naturally as links are
+   added or the viewport narrows. */
 .profile__links .linkrow {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
   margin: 0;
 }
 .profile__links .linkrow li { display: block; }
@@ -291,7 +294,7 @@ section + section { margin-top: calc(var(--step) * 2.5); }
    titles, which should carry the most weight. */
 .profile__links .linkrow a {
   display: block;
-  padding: 0.55rem 0.75rem;
+  padding: 0.42rem 0.85rem;
   border: 1px solid var(--accent);
   border-radius: 2px;
   background: none;
@@ -345,9 +348,11 @@ section + section { margin-top: calc(var(--step) * 2.5); }
     gap: 1rem;
     margin-top: 2.5rem;
   }
+  /* Centred under the centred header on narrow screens; the flex row above
+     already handles wrapping. */
   .profile__links .linkrow {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.75rem;
+    justify-content: center;
+    gap: 0.5rem;
   }
 }
 
