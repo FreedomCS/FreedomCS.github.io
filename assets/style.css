@@ -92,9 +92,11 @@ a:focus-visible {
 }
 .prose { max-width: var(--measure); }
 
-main { padding-bottom: 5rem; }
+/* The footer supplies its own top margin; 5rem here stacked with it for a
+   ~160px void between the last content and the rule above the footer. */
+main { padding-bottom: 0; }
 
-section + section { margin-top: calc(var(--step) * 2.5); }
+section + section { margin-top: calc(var(--step) * 1.7); }
 /* The profile is a header, not a peer of the sections below it, so the
    publications should follow it more closely than section-to-section. */
 .profile + section { margin-top: calc(var(--step) * 1.6); }
@@ -685,8 +687,8 @@ h2 {
   text-transform: uppercase;
   font-family: var(--sans);
   color: var(--ink);
-  margin: 0 0 1.35rem;
-  padding-bottom: 0.55rem;
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--rule);
   display: flex;
   align-items: baseline;
@@ -1046,8 +1048,8 @@ h3 {
 /* --- Footer ------------------------------------------------------------- */
 .foot {
   border-top: 1px solid var(--rule);
-  margin-top: 4.5rem;
-  padding: 1.75rem 0 3rem;
+  margin-top: 2.5rem;
+  padding: 1.4rem 0 2rem;
   font-family: var(--sans);
   font-size: 0.8125rem;
   color: var(--ink-faint);
@@ -1065,6 +1067,9 @@ h3 {
 .foot__bookmarks { display: flex; gap: 1rem; flex-wrap: wrap; }
 
 /* MapMyVisitors widget — a plain image, so it needs no border or chrome. */
+/* An unlabelled trailing widget, not a section in its own right — it does not
+   need the full section gap above it. */
+.visitors { margin-top: 1.75rem !important; }
 .visitors a { border-bottom: 0; display: inline-block; }
 .visitors img {
   border-radius: var(--radius);
