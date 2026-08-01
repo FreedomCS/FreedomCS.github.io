@@ -273,39 +273,47 @@ section + section { margin-top: calc(var(--step) * 2.5); }
 .profile__bio p:last-child { margin-bottom: 0; }
 .profile__links {
   display: grid;
-  grid-template-columns: 10rem 1fr;
+  /* The label column was a fixed 10rem with a 2rem gap — 192px reserved for
+     the word "Links:", which squeezed the row below the width the buttons
+     need and forced them onto a second line. */
+  grid-template-columns: max-content 1fr;
   align-items: center;
-  gap: 2rem;
+  gap: 1.25rem;
   margin-top: 2rem;
   font-size: 0.875rem;
 }
-/* Sized to their labels rather than stretched into equal columns, which left
-   a lot of empty space inside each button. Wraps naturally as links are
-   added or the viewport narrows. */
+/* A quiet line of text rather than a row of buttons. Six outlined boxes read
+   as a toolbar and left a wide gap trailing off to the right; separated text
+   reads as one line and sits closer to how a journal lists profile links. */
 .profile__links .linkrow {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
+  align-items: baseline;
+  gap: 0;
   margin: 0;
 }
 .profile__links .linkrow li { display: block; }
-/* Outlined in the site accent rather than filled: as solid purple these were
-   the loudest element on the page and sat directly above the publication
-   titles, which should carry the most weight. */
 .profile__links .linkrow a {
-  display: block;
-  padding: 0.42rem 0.85rem;
-  border: 1px solid var(--accent);
-  border-radius: 2px;
+  display: inline-block;
+  padding: 0;
+  border: 0;
   background: none;
   color: var(--accent);
   font-weight: 500;
-  text-align: center;
-  transition: background var(--transition), color var(--transition);
+  transition: color var(--transition);
 }
 .profile__links .linkrow a:hover {
-  background: var(--accent);
-  color: #fff;
+  color: var(--accent-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+/* Separator lives on the link, not between list items, so it wraps with the
+   text it follows instead of stranding a dot at the start of a line. */
+.profile__links .linkrow li:not(:last-child) a::after {
+  content: "·";
+  margin: 0 0.85rem;
+  color: var(--rule-strong);
+  font-weight: 400;
 }
 
 @media (max-width: 68rem) {
@@ -574,16 +582,6 @@ h1.hero__name {
 }
 
 /* --- Cities chips (running page) ---------------------------------------- */
-.cities { margin-top: 0.25rem; }
-.cities li {
-  display: inline-block;
-  padding: 0.32rem 0.7rem;
-  border: 1px solid var(--rule-strong);
-  border-radius: var(--radius);
-  color: var(--ink-muted);
-  letter-spacing: 0.02em;
-}
-
 /* --- Photo gallery (running page) ---------------------------------------- */
 .gallery {
   display: grid;
@@ -647,25 +645,34 @@ h1.hero__name {
 .linkrow {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  align-items: baseline;
+  /* No gap: spacing comes from the separator's own margins. */
+  gap: 0;
   list-style: none;
   margin: 0;
   padding: 0;
   font-family: var(--sans);
   font-size: 0.8125rem;
 }
+/* Separated text rather than boxes, matching the profile links: a row of
+   outlined buttons reads as a toolbar and is heavier than these links
+   deserve. */
 .linkrow a {
   display: inline-block;
-  padding: 0.32rem 0.7rem;
-  border: 1px solid var(--rule-strong);
-  border-radius: var(--radius);
+  padding: 0;
+  border: 0;
   color: var(--ink-muted);
   letter-spacing: 0.02em;
 }
 .linkrow a:hover {
   color: var(--accent);
-  border-color: var(--accent);
-  background: var(--accent-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.linkrow li:not(:last-child) a::after {
+  content: "·";
+  margin: 0 0.7rem;
+  color: var(--rule-strong);
 }
 
 /* --- Headings ----------------------------------------------------------- */
