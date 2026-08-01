@@ -51,6 +51,7 @@
   "profiles": [
     { "label": "Google Scholar", "url": "https://scholar.google.com/citations?user=TOMxKgsAAAAJ&hl=en" },
     { "label": "SSRN Page", "url": "https://ssrn.com/author=2620649" },
+    { "label": "ORCID", "url": "https://orcid.org/0000-0001-9258-6771" },
     { "label": "BIS Author", "url": "https://www.bis.org/author/wenzhe_li.htm" },
     { "label": "AMRO Author", "url": "https://amro-asia.org/authors/wenzhe-li" },
     { "label": "LinkedIn", "url": "https://www.linkedin.com/in/wenzhe/" },

@@ -173,6 +173,14 @@ function injectSchema(site, pubs) {
       "@type": "CollegeOrUniversity", name: e.org, url: e.url,
     })),
     sameAs: (site.profiles || []).map((p) => p.url),
+    // ORCID is the canonical identifier for a researcher, so it is declared
+    // as such and not only as another profile link.
+    identifier: (() => {
+      const orcid = (site.profiles || []).find((p) => /orcid\.org/.test(p.url));
+      return orcid
+        ? { "@type": "PropertyValue", propertyID: "ORCID", value: orcid.url }
+        : undefined;
+    })(),
     knowsAbout: [
       "Monetary policy", "Financial stability", "Shadow banking",
       "Inflation dynamics", "Central banking", "Macroeconomics",
