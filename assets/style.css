@@ -797,7 +797,7 @@ h3 {
   display: grid;
   grid-template-columns: 3.25rem 1fr;
   gap: 1.1rem;
-  padding: 1rem 0;
+  padding: 0.7rem 0;
   border-bottom: 1px solid var(--rule);
 }
 .pub:last-child { border-bottom: 0; }
@@ -824,56 +824,54 @@ h3 {
 .pub__title a { color: var(--ink); border-bottom-color: var(--rule-strong); }
 .pub__title a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
-.pub__authors {
+/* Authors and venue share one line — as separate paragraphs each entry ran to
+   five or six lines and the list to nearly 3,000px. */
+.pub__cite {
   font-size: 0.9375rem;
   color: var(--ink-muted);
-  margin: 0 0 0.15rem;
+  margin: 0 0 0.1rem;
+  line-height: 1.5;
 }
 .pub__authors .self { color: var(--ink); font-weight: 600; }
-
-.pub__venue {
-  font-size: 0.9375rem;
-  color: var(--ink-muted);
-  margin: 0 0 0.15rem;
-}
 .pub__venue em { color: var(--ink); font-style: italic; }
 
-.pub__zh {
-  font-family: var(--cjk);
-  font-size: 0.875rem;
+/* Secondary detail — Chinese title, republication note, conference — on one
+   quieter line beneath the citation. */
+.pub__aside {
+  font-size: 0.8125rem;
   color: var(--ink-faint);
-  margin: 0.25rem 0 0.15rem;
-  line-height: 1.6;
+  margin: 0 0 0.1rem;
+  line-height: 1.5;
 }
+.pub__aside .pub__zh { font-family: var(--cjk); }
+.pub__aside [lang="zh"] { font-family: var(--cjk); }
+.pub__sep { color: var(--rule-strong); margin: 0 0.15rem; }
 
-.pub__note,
-.pub__presented {
-  font-size: 0.875rem;
-  color: var(--ink-faint);
-  margin: 0.25rem 0 0;
-  line-height: 1.55;
-}
-
+/* Runs on from the citation rather than occupying a row of its own. Boxed
+   links were 26px tall against 22px of text, so the row cost a full extra
+   line per entry. */
 .pub__meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.35rem 0.75rem;
-  margin-top: 0.5rem;
   font-family: var(--sans);
   font-size: 0.75rem;
   letter-spacing: 0.02em;
+  white-space: nowrap;
 }
-.pub__links { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.pub__meta::before {
+  content: "·";
+  margin: 0 0.5rem;
+  color: var(--rule-strong);
+}
+.pub__links { display: inline; }
 .pub__links a {
-  border: 1px solid var(--rule-strong);
-  border-radius: var(--radius);
-  padding: 0.12rem 0.45rem;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid var(--rule-strong);
   color: var(--ink-muted);
 }
-.pub__links a:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+.pub__links a + a { margin-left: 0.55rem; }
+.pub__links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
-.cites { color: var(--ink-faint); }
+.cites { color: var(--ink-faint); margin-left: 0.7rem; }
 .cites a { color: var(--ink-faint); border-bottom-color: var(--rule-strong); }
 .cites a:hover { color: var(--accent); }
 
@@ -890,11 +888,16 @@ h3 {
   border: 1px solid var(--rule);
   white-space: nowrap;
 }
+/* Sits inline on the citation line, so it carries no box: padding and a
+   border would push the whole line taller than the text around it. */
 .tag--new {
-  background: var(--new-bg);
+  background: none;
   color: var(--new);
-  border-color: color-mix(in srgb, var(--new) 32%, transparent);
+  border: 0;
+  padding: 0;
+  margin-left: 0.7rem;
   font-weight: 600;
+  font-size: 0.6875rem;
 }
 .tag--theme { cursor: pointer; }
 .tag--theme:hover { color: var(--accent); border-color: var(--accent); }

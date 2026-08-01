@@ -56,7 +56,7 @@ function authorsHTML(pub) {
   const joined = names.length === 1
     ? names[0]
     : names.slice(0, -1).join(", ") + " and " + names[names.length - 1];
-  return `<p class="pub__authors">${joined}</p>`;
+  return `<span class="pub__authors">${joined}.</span>`;
 }
 
 function venueHTML(pub) {
@@ -73,7 +73,7 @@ function venueHTML(pub) {
   // Institutional authorship (e.g. BIS committee reports) reads as its own
   // sentence before the series details, not as another comma-separated field.
   const lead = pub.institution ? `${esc(pub.institution)}. ` : "";
-  return `<p class="pub__venue">${lead}${bits.join(", ")}</p>`;
+  return `<span class="pub__venue">${lead}${bits.join(", ")}</span>`;
 }
 
 function zhHTML(pub) {
@@ -83,7 +83,7 @@ function zhHTML(pub) {
   const line = pub.venue_zh
     ? `${esc(pub.title_zh)}，《${esc(pub.venue_zh)}》${nums ? "，" + nums : ""}`
     : esc(pub.title_zh);
-  return `<p class="pub__zh" lang="zh">${line}</p>`;
+  return `<span class="pub__zh" lang="zh">${line}</span>`;
 }
 
 function citesHTML(pub) {
@@ -111,16 +111,12 @@ function pubHTML(pub, themes) {
     : titleInner;
 
   const presented = pub.presented
-    ? `<p class="pub__presented">Presented at ${
+    ? `Presented at ${
         pub.presented.url
           ? `<a href="${esc(pub.presented.url)}" rel="noopener">${esc(pub.presented.label)}</a>`
           : esc(pub.presented.label)
-      }.</p>`
+      }.`
     : "";
-
-  const note = pub.note ? `<p class="pub__note">${pub.note}</p>` : "";
-  const noteZh = pub.note_zh
-    ? `<p class="pub__zh" lang="zh">${esc(pub.note_zh)}</p>` : "";
 
   // Research-area tags are omitted: the filter UI they linked to was removed
   // with the multi-page layout, so they were 20 dead links competing with the
@@ -132,18 +128,24 @@ function pubHTML(pub, themes) {
   const meta = [linksHTML(pub), citesHTML(pub), newTag]
     .filter(Boolean).join("");
 
+  // Two lines per entry: title, then one citation line that also carries the
+  // pdf links, citation counts and any New badge. Those previously sat in a
+  // row of their own, costing ~31px per entry — nearly 500px across the list —
+  // for content that fits on the end of a line already there.
+  const cite = [authorsHTML(pub), venueHTML(pub)].filter(Boolean).join(" ");
+  // Middot-separated: these fragments mix scripts and end without punctuation,
+  // so joined by a space alone a Chinese title runs straight into the English
+  // note that follows it.
+  const aside = [zhHTML(pub), pub.note, pub.note_zh ? `<span lang="zh">${esc(pub.note_zh)}</span>` : "", presented]
+    .filter(Boolean).join(' <span class="pub__sep">·</span> ');
+
   return `
     <li class="pub" data-themes="${esc((pub.themes || []).join(" "))}" data-type="${esc(pub.type)}" data-year="${esc(pub.year)}" id="${esc(pub.id)}">
       <div class="pub__year">${esc(pub.year)}</div>
       <div class="pub__body">
         <h3 class="pub__title">${title}</h3>
-        ${authorsHTML(pub)}
-        ${venueHTML(pub)}
-        ${zhHTML(pub)}
-        ${presented}
-        ${note}
-        ${noteZh}
-        ${meta ? `<div class="pub__meta">${meta}</div>` : ""}
+        ${cite || meta ? `<p class="pub__cite">${cite}${meta ? `<span class="pub__meta">${meta}</span>` : ""}</p>` : ""}
+        ${aside ? `<p class="pub__aside">${aside}</p>` : ""}
       </div>
     </li>`;
 }
