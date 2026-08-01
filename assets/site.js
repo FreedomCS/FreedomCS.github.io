@@ -133,11 +133,18 @@ function pubHTML(pub, themes) {
   // row of their own, costing ~31px per entry — nearly 500px across the list —
   // for content that fits on the end of a line already there.
   const cite = [authorsHTML(pub), venueHTML(pub)].filter(Boolean).join(" ");
-  // Middot-separated: these fragments mix scripts and end without punctuation,
-  // so joined by a space alone a Chinese title runs straight into the English
-  // note that follows it.
-  const aside = [zhHTML(pub), pub.note, pub.note_zh ? `<span lang="zh">${esc(pub.note_zh)}</span>` : "", presented]
-    .filter(Boolean).join(' <span class="pub__sep">·</span> ');
+  // Grouped by script — all the English, then all the Chinese — rather than
+  // interleaved. The two use different faces, so alternating between them
+  // made the line look inconsistent and forced the reader to switch twice.
+  // Middot-separated: these fragments end without punctuation, so a space
+  // alone would run them together.
+  const asideEn = [pub.note, presented].filter(Boolean);
+  const asideZh = [
+    zhHTML(pub),
+    pub.note_zh ? `<span lang="zh">${esc(pub.note_zh)}</span>` : "",
+  ].filter(Boolean);
+  const aside = [...asideEn, ...asideZh]
+    .join(' <span class="pub__sep">·</span> ');
 
   return `
     <li class="pub" data-themes="${esc((pub.themes || []).join(" "))}" data-type="${esc(pub.type)}" data-year="${esc(pub.year)}" id="${esc(pub.id)}">
