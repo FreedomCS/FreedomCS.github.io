@@ -853,10 +853,11 @@ h3 {
 .pub__cite > .pub__citation-text { min-width: 0; flex: 1 1 auto; }
 .pub__authors .self { color: var(--ink); font-weight: 600; }
 .pub__venue em { color: var(--ink); font-style: italic; }
-/* A second publication of the same article: same line as the first venue,
-   slightly quieter so the original still reads as primary. */
-.pub__republished { color: var(--ink-faint); }
-.pub__republished em { font-style: italic; }
+/* A second publication of the same article. It sits on the citation line
+   beside the first venue and carries the same weight — a lighter colour here
+   read as an inconsistency rather than a hierarchy. */
+.pub__republished { color: inherit; }
+.pub__republished em { color: var(--ink); font-style: italic; }
 
 /* Secondary detail — Chinese title, republication note, conference — on one
    quieter line beneath the citation. */
