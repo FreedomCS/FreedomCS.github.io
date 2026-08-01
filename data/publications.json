@@ -133,8 +133,8 @@
       "pages": "31–47",
       "language": "in Chinese",
       "url": "https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&filename=JRJG202005003&dbname=CJFDAUTODAY",
-      "note": "China Social Science Excellence of RUC (CSSE) full-text republication, <em>Finance &amp; Insurance</em>, 2020, (10), 16–26.",
-      "note_zh": "人大复印报刊资料全文转载，《金融与保险》2020, (10), 16–26",
+      "republished": "China Social Science Excellence of RUC (CSSE) full-text republication, <em>Finance &amp; Insurance</em>, 2020, (10), 16–26.",
+      "republished_zh": "人大复印报刊资料全文转载，《金融与保险》2020, (10), 16–26",
       "links": [
         { "label": "republication", "url": "https://www.rdfybk.com/qk/detail?DH=F62&NF=2020&QH=10" }
       ],
@@ -309,8 +309,8 @@
       "volume": "(12)",
       "pages": "88–90",
       "language": "in Chinese",
-      "note": "Republished with permission in <em>Tsinghua Alumni Gazette</em>, 2020, 82(2), 43–45.",
-      "note_zh": "清华校友通讯，2020, 82(2): 43–45（授权转载发表）",
+      "republished": "Republished with permission in <em>Tsinghua Alumni Gazette</em>, 2020, 82(2), 43–45.",
+      "republished_zh": "清华校友通讯，2020, 82(2): 43–45（授权转载发表）",
       "url": "https://www.tsinghua.org.cn/info/3259/41230.htm",
       "links": [
         { "label": "pdf", "url": "https://drive.google.com/file/d/1wHBatWUYcHjXrsOXici_TpsPvAMaEMzi/view?usp=drive_link" }

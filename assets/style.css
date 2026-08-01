@@ -10,7 +10,14 @@
   --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
           "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
-  --cjk: "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", SimSun, serif;
+  /* The Latin serif is listed first so digits, brackets and punctuation come
+     from it; the browser falls through to a CJK face only for the Chinese
+     characters it cannot render. Without this, SimSun — the usual Windows
+     fallback — sets Latin text full-width, which left odd gaps around
+     figures like "(3), 91–100". */
+  --cjk: "Source Serif 4", "Source Serif Pro", Charter, Georgia,
+         "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC",
+         "Microsoft YaHei", SimSun, serif;
 
   /* Light theme */
   --bg:            #fdfcfa;
@@ -841,9 +848,15 @@ h3 {
   margin: 0 0 0.1rem;
   line-height: 1.5;
 }
-.pub__cite > .pub__citation-text { min-width: 0; }
+/* Takes the space the links leave; without a flex basis a long citation
+   wraps underneath them instead of stopping short. */
+.pub__cite > .pub__citation-text { min-width: 0; flex: 1 1 auto; }
 .pub__authors .self { color: var(--ink); font-weight: 600; }
 .pub__venue em { color: var(--ink); font-style: italic; }
+/* A second publication of the same article: same line as the first venue,
+   slightly quieter so the original still reads as primary. */
+.pub__republished { color: var(--ink-faint); }
+.pub__republished em { font-style: italic; }
 
 /* Secondary detail — Chinese title, republication note, conference — on one
    quieter line beneath the citation. */

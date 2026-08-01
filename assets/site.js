@@ -73,7 +73,13 @@ function venueHTML(pub) {
   // Institutional authorship (e.g. BIS committee reports) reads as its own
   // sentence before the series details, not as another comma-separated field.
   const lead = pub.institution ? `${esc(pub.institution)}. ` : "";
-  return `<span class="pub__venue">${lead}${bits.join(", ")}</span>`;
+
+  // A republication is a second venue for the same article, so it belongs on
+  // the citation line beside the first — not among the secondary detail.
+  const again = pub.republished
+    ? ` <span class="pub__republished">${pub.republished}</span>` : "";
+
+  return `<span class="pub__venue">${lead}${bits.join(", ")}.</span>${again}`;
 }
 
 function zhHTML(pub) {
@@ -83,7 +89,9 @@ function zhHTML(pub) {
   const line = pub.venue_zh
     ? `${esc(pub.title_zh)}，《${esc(pub.venue_zh)}》${nums ? "，" + nums : ""}`
     : esc(pub.title_zh);
-  return `<span class="pub__zh" lang="zh">${line}</span>`;
+  // The Chinese republication follows its own venue, mirroring the English.
+  const again = pub.republished_zh ? `。${esc(pub.republished_zh)}` : "";
+  return `<span class="pub__zh" lang="zh">${line}${again}</span>`;
 }
 
 function citesHTML(pub) {
