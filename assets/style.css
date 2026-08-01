@@ -307,11 +307,11 @@ section + section { margin-top: calc(var(--step) * 2.5); }
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-/* Separator lives on the link, not between list items, so it wraps with the
-   text it follows instead of stranding a dot at the start of a line. */
-.profile__links .linkrow li:not(:last-child) a::after {
+/* The separator sits on the <li>, outside the <a>, so it is neither
+   clickable nor underlined on hover. */
+.profile__links .linkrow li:not(:last-child)::after {
   content: "·";
-  margin: 0 0.85rem;
+  margin: 0 1.15rem;
   color: var(--rule-strong);
   font-weight: 400;
 }
@@ -669,9 +669,11 @@ h1.hero__name {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-.linkrow li:not(:last-child) a::after {
+/* On the <li>, not the <a>: inside the link the dot would be clickable and
+   would pick up the hover underline. */
+.linkrow li:not(:last-child)::after {
   content: "·";
-  margin: 0 0.7rem;
+  margin: 0 0.95rem;
   color: var(--rule-strong);
 }
 
