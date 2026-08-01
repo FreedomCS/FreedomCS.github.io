@@ -15,6 +15,24 @@ param([string]$Message)
 $ErrorActionPreference = "Stop"
 Set-Location $PSScriptRoot
 
+# Refresh the <noscript> publication list from publications.json, so the copy
+# that non-JavaScript crawlers read never drifts from the real data. Harmless
+# when nothing has changed - it rewrites the same block.
+$python = @("python", "py", "python3") | Where-Object { Get-Command $_ -ErrorAction SilentlyContinue } | Select-Object -First 1
+if ($python) {
+    & $python scripts/build-noscript.py
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host "`nCould not rebuild the publication list - stopping so the site" -ForegroundColor Red
+        Write-Host "is not published with a stale copy. Nothing has been pushed."
+        Read-Host "`nPress Enter to close"
+        exit 1
+    }
+} else {
+    Write-Host "Python not found - skipping the publication-list rebuild." -ForegroundColor Yellow
+    Write-Host "If you edited data/publications.json, the crawler-visible copy"
+    Write-Host "in index.html will be out of date."
+}
+
 # Is there anything to publish?
 $changes = git status --porcelain
 if (-not $changes) {
