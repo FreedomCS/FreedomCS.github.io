@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://freedomcs.github.io/</loc><priority>1.0</priority></url>
-  <url><loc>https://freedomcs.github.io/articles.html</loc><priority>0.7</priority></url>
-  <url><loc>https://freedomcs.github.io/running.html</loc><priority>0.5</priority></url>
+  <url><loc>https://freedomcs.github.io/articles.html</loc><priority>0.6</priority></url>
+
+  <!-- Full text of each essay. These carry the site's substantial prose as
+       static HTML, so they are the pages a crawler can read in full. -->
+  <url><loc>https://freedomcs.github.io/articles/money-perspectives.html</loc><priority>0.8</priority></url>
+  <url><loc>https://freedomcs.github.io/articles/money-perspectives-cn.html</loc><priority>0.8</priority></url>
+  <url><loc>https://freedomcs.github.io/articles/tsinghua-12-years.html</loc><priority>0.7</priority></url>
+  <url><loc>https://freedomcs.github.io/articles/wudaokou-interview.html</loc><priority>0.7</priority></url>
+
+  <url><loc>https://freedomcs.github.io/running.html</loc><priority>0.4</priority></url>
 </urlset>
