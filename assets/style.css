@@ -318,10 +318,10 @@ section + section { margin-top: calc(var(--step) * 2.5); }
 
 @media (max-width: 68rem) {
   .profile__grid {
-    grid-template-columns: 14rem minmax(20rem, 1fr) 9rem;
-    gap: 3rem;
+    grid-template-columns: 12rem minmax(0, 1fr) 8rem;
+    gap: 2rem;
   }
-  .profile__portrait .portrait { width: 14rem; }
+  .profile__portrait .portrait { width: 12rem; }
 }
 
 @media (max-width: 46rem) {
@@ -805,6 +805,7 @@ h3 {
   .pub { grid-template-columns: 1fr; gap: 0.3rem; }
 }
 
+
 .pub__year {
   font-family: var(--sans);
   font-size: 0.8125rem;
@@ -825,13 +826,20 @@ h3 {
 .pub__title a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
 /* Authors and venue share one line — as separate paragraphs each entry ran to
-   five or six lines and the list to nearly 3,000px. */
+   five or six lines and the list to nearly 3,000px. The links and badges are
+   pushed to the right edge so they form a column that can be scanned without
+   reading the citations. */
 .pub__cite {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 2rem;
   font-size: 0.9375rem;
   color: var(--ink-muted);
   margin: 0 0 0.1rem;
   line-height: 1.5;
 }
+.pub__cite > .pub__citation-text { min-width: 0; }
 .pub__authors .self { color: var(--ink); font-weight: 600; }
 .pub__venue em { color: var(--ink); font-style: italic; }
 
@@ -847,19 +855,17 @@ h3 {
 .pub__aside [lang="zh"] { font-family: var(--cjk); }
 .pub__sep { color: var(--rule-strong); margin: 0 0.15rem; }
 
-/* Runs on from the citation rather than occupying a row of its own. Boxed
+/* Sits on the citation line rather than occupying a row of its own — boxed
    links were 26px tall against 22px of text, so the row cost a full extra
-   line per entry. */
+   line per entry — and is pushed to the right edge to form a scannable
+   column. */
 .pub__meta {
   font-family: var(--sans);
   font-size: 0.75rem;
   letter-spacing: 0.02em;
   white-space: nowrap;
-}
-.pub__meta::before {
-  content: "·";
-  margin: 0 0.5rem;
-  color: var(--rule-strong);
+  flex-shrink: 0;
+  text-align: right;
 }
 .pub__links { display: inline; }
 .pub__links a {
@@ -901,6 +907,23 @@ h3 {
 }
 .tag--theme { cursor: pointer; }
 .tag--theme:hover { color: var(--accent); border-color: var(--accent); }
+
+/* Below this width the citation and the links cannot share a line without
+   pushing the page wider than the screen, so the links drop underneath and
+   align left. Must come after the .pub__cite and .pub__meta rules above:
+   equal specificity, so source order decides. */
+@media (max-width: 60rem) {
+  .pub__cite {
+    display: block;
+    gap: 0;
+  }
+  .pub__meta {
+    display: block;
+    white-space: normal;
+    text-align: left;
+    margin-top: 0.25rem;
+  }
+}
 
 /* --- Filters ------------------------------------------------------------ */
 .filters {

@@ -144,7 +144,7 @@ function pubHTML(pub, themes) {
       <div class="pub__year">${esc(pub.year)}</div>
       <div class="pub__body">
         <h3 class="pub__title">${title}</h3>
-        ${cite || meta ? `<p class="pub__cite">${cite}${meta ? `<span class="pub__meta">${meta}</span>` : ""}</p>` : ""}
+        ${cite || meta ? `<p class="pub__cite"><span class="pub__citation-text">${cite}</span>${meta ? `<span class="pub__meta">${meta}</span>` : ""}</p>` : ""}
         ${aside ? `<p class="pub__aside">${aside}</p>` : ""}
       </div>
     </li>`;
