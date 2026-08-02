@@ -196,9 +196,11 @@ function injectSchema(site, pubs) {
         ? { "@type": "PropertyValue", propertyID: "ORCID", value: orcid.url }
         : undefined;
     })(),
+    // The author's own wording, matching his AMRO profile.
     knowsAbout: [
-      "Monetary policy", "Financial stability", "Shadow banking",
-      "Inflation dynamics", "Central banking", "Macroeconomics",
+      "Macroeconomics and inflation", "Financial stability",
+      "Monetary policy", "International economics",
+      "China's shadow banking system",
     ],
   };
 
