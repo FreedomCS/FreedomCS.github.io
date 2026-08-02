@@ -468,11 +468,16 @@ async function renderVisits() {
   if (!el || !code || code === "YOURCODE") return;
 
   try {
+    // A unique query defeats any cached response: enabling public counts in
+    // the GoatCounter settings does not invalidate an earlier cached 403.
     const res = await fetch(
-      `https://${code}.goatcounter.com/counter/TOTAL.json`, { cache: "no-cache" });
+      `https://${code}.goatcounter.com/counter/TOTAL.json?v=${Date.now()}`,
+      { cache: "no-store" });
     if (!res.ok) return;
     const { count } = await res.json();
-    if (!count) return;
+    // count arrives as a string with thin spaces, e.g. "1 086 918"; show it
+    // as given, but treat a genuinely empty response as nothing to display.
+    if (count == null || count === "") return;
     el.textContent = `${count} visits`;
     el.hidden = false;
   } catch {
