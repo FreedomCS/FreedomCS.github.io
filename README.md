@@ -188,26 +188,41 @@ Once live:
 
 ## 7. Visitor counts
 
-The home page shows the **MapMyVisitors** widget — the same one that was on
-the Google Site, using the same account key, so the existing pageview total
-carries over rather than restarting at zero. It sits below Bookmarks and
-renders a world map with the running total (273 pageviews when it was
-migrated).
+### GoatCounter — to switch on
 
-It is a plain `<img>` served over HTTPS, so it needs no JavaScript and works
-on GitHub Pages unchanged. The `d=` parameter in the URL is the account key;
-keep it intact. Dashboard: <https://mapmyvisitors.com/web/1bxu9>.
+No cookies, no personal data, free for personal sites. Currently **off**:
+nothing loads and no data leaves the page.
 
-Two earlier attempts, for the record:
+1. Register at <https://www.goatcounter.com/signup> and choose a site code.
+2. In **Settings → Site settings**, tick **"Allow adding visitor counts on
+   your website"**. Without this the count endpoint returns nothing.
+3. In `index.html`, find the commented GoatCounter block near the bottom,
+   uncomment the two `<script>` lines, and replace `YOURCODE` with your site
+   code **in both places**.
 
-- **Busuanzi** was briefly used and removed. It displayed 10,455,116 visits /
-  7,634,371 visitors — a *global* tally shared by every site using that free
-  service, not this site's traffic — and it counts over plain `http://`, which
-  browsers block as mixed content on an HTTPS page. Don't reinstate it.
-- **GoatCounter** was wired up as a replacement before realising the
-  MapMyVisitors registration already existed. Removed as redundant. It
-  remains a good option (no cookies, free for personal sites) if a plain
-  number is ever wanted instead of a map.
+The total then appears in the footer once there is traffic. If GoatCounter is
+ever unreachable the count simply stays hidden.
+
+### MapMyVisitors — currently broken at their end
+
+The world map below Bookmarks. It carried over from the Google Site, reaching
+285 pageviews before it stopped working around 1 August 2026.
+
+Their map service returns **HTTP 500 for every real account key** while
+returning a valid image for a made-up one — so it is a fault in their
+generator, not this site or the account. Registering a fresh widget
+(dashboard `/web/1c738`, now in use) failed identically.
+
+The section hides itself when the image fails, so the outage leaves no blank
+gap, and it will reappear on its own if they fix it. If it is still broken
+after a week or so, delete the `<section class="visitors">` block.
+
+### Don't reinstate Busuanzi
+
+Used briefly and removed. It displayed 10,455,116 visits / 7,634,371 visitors
+— a *global* tally shared by every site using that free service, not this
+site's traffic — and it counts over plain `http://`, which browsers block as
+mixed content on an HTTPS page.
 
 ---
 

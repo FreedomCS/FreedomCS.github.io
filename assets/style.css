@@ -1083,6 +1083,12 @@ h3 {
 /* MapMyVisitors widget — a plain image, so it needs no border or chrome. */
 /* An unlabelled trailing widget, not a section in its own right — it does not
    need the full section gap above it. */
+/* GoatCounter total, shown in the footer beside the copyright. */
+.visits {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+
 .visitors { margin-top: 1.75rem !important; }
 .visitors a { border-bottom: 0; display: inline-block; }
 .visitors img {
@@ -1112,7 +1118,7 @@ h3 {
   body { font-size: 9.75pt; line-height: 1.4; background: #fff; color: #000; }
 
   .masthead, .nav, .skip, .filters, .filter-note,
-  .print-hint, .foot__bookmarks, .portrait, .hero__aside, .visitors,
+  .print-hint, .foot__bookmarks, .portrait, .hero__aside, .visitors, .visits,
   .no-print { display: none !important; }
 
   .wrap { max-width: none; padding: 0; }
