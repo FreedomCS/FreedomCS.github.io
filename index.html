@@ -124,13 +124,18 @@
       <div class="linkrow js-bookmarks"></div>
     </section>
 
-    <section class="visitors no-print">
-      <!-- Same MapMyVisitors widget as the Google Site, so the existing
-           pageview total carries over. The d= key identifies the account. -->
-      <a href="https://mapmyvisitors.com/web/1bxu9" title="Visit tracker">
-        <img src="https://mapmyvisitors.com/map.png?cl=ffffff&amp;w=300&amp;t=tt&amp;d=g7JgWAnNj6K9wyvCSpRZpiWYhKDXlksO8sRGHl3tkCg&amp;co=2d78ad&amp;ct=ffffff"
+    <!-- MapMyVisitors widget registered for this site (dashboard /web/1c738).
+         The section hides itself if the image fails so an outage at their end
+         leaves no blank gap; it reappears on its own once the map returns.
+         Their map service has been returning HTTP 500 for all real account
+         keys since around 1 August 2026. -->
+    <section class="visitors no-print" hidden>
+      <a href="https://mapmyvisitors.com/web/1c738" title="Visit tracker">
+        <img src="https://mapmyvisitors.com/map.png?d=lXcs4JffDPDy1VnFtW6S-WP7A872q90rZNtvAFDXicM&amp;cl=ffffff&amp;w=300&amp;t=tt&amp;co=2d78ad&amp;ct=ffffff"
              alt="Map of visitor locations with total pageview count"
-             width="300" height="158" loading="lazy">
+             width="300" height="158"
+             onload="this.closest('.visitors').hidden = false"
+             onerror="this.closest('.visitors').remove()">
       </a>
     </section>
 
