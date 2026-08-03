@@ -1023,7 +1023,9 @@ h3 {
   max-width: var(--measure);
 }
 .articles .pub__zh { margin-top: 0.1rem; }
-/* The heading is the link; it should read as a heading, not as a link. */
+/* Both titles are links, but should read as titles rather than as links:
+   each keeps its own colour (the heading dark, the Chinese line muted)
+   and only picks up the accent on hover. */
 .articles__link { color: inherit; border-bottom: 0; }
 .articles__link:hover { color: var(--accent); }
 
