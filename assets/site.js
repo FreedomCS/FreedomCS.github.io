@@ -288,15 +288,26 @@ function renderThemes(pubData) {
 function renderArticles(site) {
   const el = $("#articles");
   if (!el) return;
-  el.innerHTML = (site.articles || []).map((a) => `
+  el.innerHTML = (site.articles || []).map((a) => {
+    const links = a.links || [];
+    // The title is the obvious click target, so it carries the first link.
+    // Any remaining link is a genuine alternative — a different language,
+    // not a second route to the same page — and stays listed below.
+    const [main, ...alternates] = links;
+    const title = esc(a.title);
+    const heading = main
+      ? `<a class="articles__link" href="${esc(main.url)}">${title}</a>`
+      : title;
+    return `
     <li id="${esc(a.id)}">
-      <h3>${esc(a.title)}${a.year ? ` <span class="cites">(${esc(a.year)})</span>` : ""}</h3>
+      <h3>${heading}${a.year ? ` <span class="cites">(${esc(a.year)})</span>` : ""}</h3>
       ${a.title_zh ? `<p class="pub__zh" lang="zh">${esc(a.title_zh)}</p>` : ""}
       ${a.blurb ? `<p>${a.blurb}</p>` : ""}
-      <div class="pub__meta">${
-        (a.links || []).map((l) => `<span class="pub__links"><a href="${esc(l.url)}" rel="noopener">${esc(l.label)}</a></span>`).join("")
-      }</div>
-    </li>`).join("");
+      ${alternates.length ? `<div class="pub__meta">${
+        alternates.map((l) => `<span class="pub__links"><a href="${esc(l.url)}" rel="noopener">${esc(l.label)}</a></span>`).join("")
+      }</div>` : ""}
+    </li>`;
+  }).join("");
 }
 
 function renderPublications(pubData) {

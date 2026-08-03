@@ -1023,6 +1023,9 @@ h3 {
   max-width: var(--measure);
 }
 .articles .pub__zh { margin-top: 0.1rem; }
+/* The heading is the link; it should read as a heading, not as a link. */
+.articles__link { color: inherit; border-bottom: 0; }
+.articles__link:hover { color: var(--accent); }
 
 /* --- CV ----------------------------------------------------------------- */
 .cv-block { margin-bottom: 2rem; }
