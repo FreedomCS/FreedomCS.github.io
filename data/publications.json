@@ -100,7 +100,7 @@
       "links": [
         { "label": "pdf-wp", "url": "https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID3629003_code2620649.pdf?abstractid=3629003&mirid=1" }
       ],
-      "citations": { "cnki": 27, "scholar": 7 }
+      "citations": { "cnki": 34, "scholar": 7 }
     },
     {
       "id": "shadow-banking-monetary-policy-2020",
@@ -118,7 +118,7 @@
       "links": [
         { "label": "pdf", "url": "https://ssrn.com/abstract=5345054" }
       ],
-      "citations": { "cnki": 8, "scholar": 3 }
+      "citations": { "cnki": 11, "scholar": 3 }
     },
     {
       "id": "shadow-banking-financial-stability-2020",
@@ -138,7 +138,7 @@
       "links": [
         { "label": "republication", "url": "https://www.rdfybk.com/qk/detail?DH=F62&NF=2020&QH=10" }
       ],
-      "citations": { "cnki": 42, "scholar": 2 }
+      "citations": { "cnki": 50, "scholar": 2 }
     },
     {
       "id": "shadow-banking-definition-2019",
@@ -155,7 +155,7 @@
       "language": "in Chinese",
       "url": "http://www.jryj.org.cn/CN/Y2019/V465/I3/53",
       "links": [{ "label": "pdf", "url": "http://www.jryj.org.cn/CN/Y2019/V465/I3/53#1" }],
-      "citations": { "cnki": 249, "scholar": 23 }
+      "citations": { "cnki": 291, "scholar": 23 }
     },
     {
       "id": "ppi-cpi-dsge-2018",
@@ -177,7 +177,7 @@
       "links": [
         { "label": "pdf-wp", "url": "https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID3221691_code2620649.pdf?abstractid=3221691&mirid=1" }
       ],
-      "citations": { "cnki": 8 }
+      "citations": { "cnki": 10 }
     },
     {
       "id": "targeted-monetary-policy-2018",

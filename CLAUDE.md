@@ -29,8 +29,11 @@ scripts/*.ps1       Image preparation (photos, logos)
 ```
 
 Target: GitHub Pages at `freedomcs.github.io` (repo must be named
-`FreedomCS.github.io` for the root URL). **Not yet published** — no remote
-is configured. The user pushes when ready.
+`FreedomCS.github.io` for the root URL). **Published and live** since
+1 August 2026 — the remote is `origin`
+(`github.com/FreedomCS/FreedomCS.github.io.git`). The site is public, so
+changes pushed to `main` are visible within a minute or two. `publish.ps1`
+does the commit-and-push in one step.
 
 ---
 
@@ -93,7 +96,7 @@ background is fine; recolouring or reconstructing them is not.
 | **No dark mode** | Removed at user's request (~113 lines). Site is light-only and ignores OS preference. Don't reintroduce. |
 | **No CV page** | User declined. Print styling on the home page remains (Ctrl+P) — harmless, no nav link. |
 | **Articles hosted locally** | Full text migrated; no longer links out to Google. |
-| **Busuanzi counter removed** | Showed a *global* shared tally (10.4M), and counts over `http://` which breaks on HTTPS. Replaced by GoatCounter, currently off. See README §7. |
+| **Busuanzi counter removed** | Showed a *global* shared tally (10.4M), and counts over `http://` which breaks on HTTPS. Replaced by GoatCounter, live since 2 Aug 2026. See README §7. |
 | **Repo `FreedomCS.github.io`** | `liwenzhe`, `wenzheli`, `wenzhe-li` are all taken by other GitHub users; `liwenzhe.com` is registered. A custom domain (`wenzheli.com` looked free) is the only route to a clean URL. User chose to keep `freedomcs` for now and revisit. |
 
 | **"New" badge is derived, not stored** | Was a manual `is_new` flag on 6 entries that would silently rot. Now computed from `year` against the clock: last 3 calendar years including the current one (`RECENT_YEARS` in `site.js`). Nothing to maintain. |
@@ -104,6 +107,68 @@ background is fine; recolouring or reconstructing them is not.
 Resolved since: the `articles.html` intro (Claude's wording) is removed,
 and the 20 dead research-area tags are gone from the publication list.
 The `themes` data stays in `publications.json` if filtering ever returns.
+
+---
+
+## Decision log
+
+Newest first. The table above holds *standing* decisions; this records
+**when** things happened and what was tried and rejected — the part
+`git log` can't reconstruct. Append a dated entry whenever a choice is
+made that a future session would otherwise have to re-litigate. Keep it
+to a few lines; the reasoning matters more than the changed files.
+
+### 2026-08-03 — CNKI citation counts refreshed by hand
+
+Five Chinese-language papers updated in `publications.json`: 发展驱动因素
+27→34, 对货币政策调控的影响 8→11, 对金融稳定的影响 42→50,
+定义、构成和规模测算 249→291, PPI与CPI走势 8→10.
+
+**CNKI cannot be scraped from an agent sandbox — don't try again.** Every
+`cnki.net` hostname (`kns`, `www`, `oversea`, `chn.oversea`, `kns8`,
+`navi`) CNAMEs to Tencent EdgeOne at `43.159.104.130`, which serves a
+certificate for unrelated domains (`*.4399.com`, `*.dianping.com`) and
+returns **HTTP 418 with a zero-byte body**. Tried and failed: disabling
+cert validation, browser User-Agent, `Accept-Language: zh-CN`, a CNKI
+referer, the `kcms2/article/abstract` URL form. It is a bot filter, not a
+paywall — a control request to `jryj.org.cn` (also China-hosted) returns
+200 from the same sandbox. The count is also painted by JavaScript, so
+even valid HTML wouldn't contain it. ScholarMate mirrors CNKI metadata
+but not the counts; web search doesn't republish them.
+
+The user reads the numbers from his own browser and pastes them. Ask;
+never estimate. An invented citation count on his own publication list is
+the kind of error only he would be blamed for.
+
+Still uncounted: 我在清华大学求学十二年 (金融博览), 货币的形态演变和三个层次
+(中国金融), and the 2019 经济研究 working paper. `citesHTML` in `site.js`
+treats 0 as falsy, so a genuine zero renders as nothing — kept that way
+deliberately.
+
+### 2026-08-02 — Analytics and visitor counts settled
+
+Google Analytics 4 added to every page (`2491cfc`). GoatCounter switched
+on after registration (`16256ef`), having been staged switched-off the
+same day. MapMyVisitors re-keyed and made to hide itself on failure
+(`a76e544`) rather than showing a broken widget. Home page descriptions
+reverted to the author's own wording (`e00d926`).
+
+### 2026-08-01 — Published; publication list restructured
+
+Site went live at `freedomcs.github.io`. Publication entries condensed to
+two or three lines, with pdf links and New badges right-aligned into a
+scannable column; English and Chinese detail grouped rather than
+interleaved. A static publication list was added for crawlers that don't
+run JavaScript, and the Puppeteer pre-render script was dropped as
+redundant. ORCID added to the profile and structured data.
+
+### 2026-07-30 — Migration completed and verified
+
+Google Sites content fully migrated: photos, four article pages, the full
+Running page text. Dark mode removed (~113 lines). Site simplified from
+five pages to three. Typographic pass: one body size, prose held to
+`--measure-prose`, the name promoted to a serif masthead. Running photos
+re-exported with GPS stripped. `CLAUDE.md` created.
 
 ---
 
@@ -139,4 +204,5 @@ that verification must test the actual claim being made.
   rotating into the pixels).
 - **`data-theme`** on filter buttons refers to *research areas*, not
   colour themes. Unrelated to the removed dark mode — don't strip it.
-- **Commits:** four so far, all local. Nothing pushed.
+- **Commits:** 48 as of 3 August 2026, all pushed to `origin/main`. Don't
+  quote a count here as if it were current — check `git log` instead.
