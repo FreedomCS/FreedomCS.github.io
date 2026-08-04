@@ -205,12 +205,15 @@ section + section { margin-top: calc(var(--step) * 1.7); }
 }
 .profile__grid {
   display: grid;
-  /* The three columns total less than the page width, so the grid used to
-     pack them left and leave 94px of dead space on the right, which put
-     the whole header off-centre. justify-content centres the group
-     instead; the column sizes are unchanged. */
-  grid-template-columns: 16.625rem 28rem 10.5rem;
-  gap: 5rem;
+  /* The outer columns are deliberately equal, so the name block lands on
+     the page's true centre line. Sizing them to their contents instead
+     (portrait 16.625rem, logos 13.5rem) left the middle column shoved
+     25px toward the narrower side — the header read as centred but the
+     name was not. The logo stack is narrower than its column and simply
+     centres within it. These three widths plus the gaps fill the page
+     exactly. */
+  grid-template-columns: 16.625rem 28rem 16.625rem;
+  gap: 5.625rem;
   align-items: center;
   justify-content: center;
 }
@@ -260,6 +263,10 @@ section + section { margin-top: calc(var(--step) * 1.7); }
   display: grid;
   align-items: center;
   gap: 2.1rem;
+  /* Narrower than its column (which matches the portrait so the name block
+     centres); the stack sits in the middle of the space it is given. */
+  width: 13.5rem;
+  margin-inline: auto;
 }
 .profile__logos a {
   display: block;
@@ -267,9 +274,13 @@ section + section { margin-top: calc(var(--step) * 1.7); }
   transition: opacity var(--transition);
 }
 .profile__logos a:hover { opacity: 0.75; }
+/* The cap is a safety rail for a future mark with an odd aspect ratio, not
+   a size control — width sets the size. It has to clear the tallest of the
+   three (57px at this column width) or it would silently crop the
+   official artwork. */
 .profile__logos img {
   width: 100%;
-  max-height: 3.2rem;
+  max-height: 4.25rem;
   object-fit: contain;
 }
 
@@ -332,10 +343,12 @@ section + section { margin-top: calc(var(--step) * 1.7); }
 
 @media (max-width: 68rem) {
   .profile__grid {
-    grid-template-columns: 12rem minmax(0, 1fr) 8rem;
+    /* Equal outer columns here too, so the name block stays centred. */
+    grid-template-columns: 12rem minmax(0, 1fr) 12rem;
     gap: 2rem;
   }
   .profile__portrait .portrait { width: 12rem; }
+  .profile__logos { width: 10rem; }
 }
 
 @media (max-width: 46rem) {
@@ -363,7 +376,7 @@ section + section { margin-top: calc(var(--step) * 1.7); }
     margin-inline: auto;
     overflow-wrap: anywhere;
   }
-  .profile__logos { width: 10.5rem; }
+  .profile__logos { width: 13.5rem; }
   .profile__bio { margin-top: 4rem; }
   .profile__links {
     grid-template-columns: 1fr;
