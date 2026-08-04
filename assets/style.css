@@ -205,9 +205,14 @@ section + section { margin-top: calc(var(--step) * 1.7); }
 }
 .profile__grid {
   display: grid;
+  /* The three columns total less than the page width, so the grid used to
+     pack them left and leave 94px of dead space on the right, which put
+     the whole header off-centre. justify-content centres the group
+     instead; the column sizes are unchanged. */
   grid-template-columns: 16.625rem 28rem 10.5rem;
   gap: 5rem;
   align-items: center;
+  justify-content: center;
 }
 .profile__grid > * { min-width: 0; }
 .profile__portrait .portrait {
