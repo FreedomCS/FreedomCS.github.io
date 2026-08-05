@@ -82,7 +82,7 @@
         { "label": "slides", "url": "https://www.aof.org.hk/docs/default-source/hkimr/conference-workshop/session-6_1a_wenzhe-li-%2807-17%29.pdf" },
         { "label": "news", "url": "https://www.aof.org.hk/leadership-development/collaborative-events/20240715" }
       ],
-      "citations": { "scholar": 12 }
+      "citations": { "scholar": 13 }
     },
     {
       "id": "shadow-banking-drivers-2021",
@@ -118,7 +118,7 @@
       "links": [
         { "label": "pdf", "url": "https://ssrn.com/abstract=5345054" }
       ],
-      "citations": { "cnki": 11, "scholar": 3 }
+      "citations": { "cnki": 11, "scholar": 2 }
     },
     {
       "id": "shadow-banking-financial-stability-2020",
@@ -138,7 +138,7 @@
       "links": [
         { "label": "republication", "url": "https://www.rdfybk.com/qk/detail?DH=F62&NF=2020&QH=10" }
       ],
-      "citations": { "cnki": 50, "scholar": 2 }
+      "citations": { "cnki": 50 }
     },
     {
       "id": "shadow-banking-definition-2019",
@@ -155,7 +155,7 @@
       "language": "in Chinese",
       "url": "http://www.jryj.org.cn/CN/Y2019/V465/I3/53",
       "links": [{ "label": "pdf", "url": "http://www.jryj.org.cn/CN/Y2019/V465/I3/53#1" }],
-      "citations": { "cnki": 291, "scholar": 23 }
+      "citations": { "cnki": 291, "scholar": 21 }
     },
     {
       "id": "ppi-cpi-dsge-2018",
@@ -196,7 +196,7 @@
       "links": [
         { "label": "pdf", "url": "https://drive.google.com/file/d/1q-M85_S-rwUsO6rJs3PEyPyQyL2O33lq/view?usp=sharing" }
       ],
-      "citations": { "scholar": 10 }
+      "citations": { "scholar": 9 }
     },
 
     {
