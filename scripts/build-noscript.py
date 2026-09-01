@@ -59,7 +59,10 @@ def entry(pub):
 
     tail = []
     if pub.get("venue"):
-        tail.append("<em>" + esc(pub["venue"]) + "</em>")
+        name = "<em>" + esc(pub["venue"]) + "</em>"
+        if pub.get("venue_url"):
+            name = f'<a href="{esc(pub["venue_url"])}">{name}</a>'
+        tail.append(name)
     for key in ("volume", "pages", "publisher", "role"):
         if pub.get(key):
             tail.append(esc(pub[key]))

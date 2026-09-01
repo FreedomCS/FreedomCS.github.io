@@ -61,7 +61,15 @@ function authorsHTML(pub) {
 
 function venueHTML(pub) {
   const bits = [];
-  if (pub.venue) bits.push(`<em>${esc(pub.venue)}</em>`);
+  // `venue_url` links the venue name itself — the report or series this piece
+  // sits inside. Cheaper than a chip in the right-hand column, which would
+  // read as another way to get this same piece rather than its parent.
+  if (pub.venue) {
+    const name = `<em>${esc(pub.venue)}</em>`;
+    bits.push(pub.venue_url
+      ? `<a href="${esc(pub.venue_url)}" rel="noopener">${name}</a>`
+      : name);
+  }
   const nums = [pub.volume, pub.pages].filter(Boolean).map(esc).join(", ");
   if (nums) bits.push(nums);
   if (pub.publisher) bits.push(esc(pub.publisher));

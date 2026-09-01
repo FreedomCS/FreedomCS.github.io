@@ -871,6 +871,12 @@ h3 {
 .pub__cite > .pub__citation-text { min-width: 0; flex: 1 1 auto; }
 .pub__authors .self { color: var(--ink); font-weight: 600; }
 .pub__venue em { color: var(--ink); font-style: italic; }
+/* A linked venue keeps the citation line's own colour — the <em> inside sets
+   the text — with just the underline marking it as a link, so it does not
+   compete with the publication title above. */
+.pub__venue a { border-bottom-color: var(--rule-strong); }
+.pub__venue a:hover { border-bottom-color: var(--accent); }
+.pub__venue a:hover em { color: var(--accent); }
 /* A second publication of the same article. It sits on the citation line
    beside the first venue and carries the same weight — a lighter colour here
    read as an inconsistency rather than a hierarchy. */
@@ -894,6 +900,15 @@ h3 {
   line-height: 1.5;
 }
 .pub__aside > .pub__aside-text { min-width: 0; flex: 1 1 auto; }
+/* A link in the aside (a companion piece's title) keeps the line's quieter
+   colour rather than the full accent, which would otherwise make it louder
+   than the publication's own title above it. It still underlines, and picks
+   up the accent on hover. */
+.pub__aside-text a {
+  color: inherit;
+  border-bottom-color: var(--rule-strong);
+}
+.pub__aside-text a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 .pub__aside .pub__zh { font-family: var(--cjk); }
 .pub__aside [lang="zh"] { font-family: var(--cjk); }
 .pub__sep { color: var(--rule-strong); margin: 0 0.15rem; }
