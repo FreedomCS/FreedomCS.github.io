@@ -154,13 +154,22 @@ function pubHTML(pub, themes) {
   const aside = [...asideEn, ...asideZh]
     .join(' <span class="pub__sep">·</span> ');
 
+  // A companion piece named on the aside line carries its own link, aligned
+  // into the same right-hand column as the citation row's. It does not belong
+  // in `links`: that column means "ways to get *this* publication", so a chip
+  // there would read as another version of the paper rather than a separate
+  // work referred to on the line below.
+  const asideLinks = (pub.note_links || [])
+    .map((l) => `<a href="${esc(l.url)}" rel="noopener">${esc(l.label)}</a>`)
+    .join("");
+
   return `
     <li class="pub" data-themes="${esc((pub.themes || []).join(" "))}" data-type="${esc(pub.type)}" data-year="${esc(pub.year)}" id="${esc(pub.id)}">
       <div class="pub__year">${esc(pub.year)}</div>
       <div class="pub__body">
         <h3 class="pub__title">${title}</h3>
         ${cite || meta ? `<p class="pub__cite"><span class="pub__citation-text">${cite}</span>${meta ? `<span class="pub__meta">${meta}</span>` : ""}</p>` : ""}
-        ${aside ? `<p class="pub__aside">${aside}</p>` : ""}
+        ${aside ? `<p class="pub__aside"><span class="pub__aside-text">${aside}</span>${asideLinks ? `<span class="pub__meta"><span class="pub__links">${asideLinks}</span></span>` : ""}</p>` : ""}
       </div>
     </li>`;
 }

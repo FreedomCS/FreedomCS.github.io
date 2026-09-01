@@ -878,13 +878,22 @@ h3 {
 .pub__republished em { color: var(--ink); font-style: italic; }
 
 /* Secondary detail — Chinese title, republication note, conference — on one
-   quieter line beneath the citation. */
+   quieter line beneath the citation. A flex row, mirroring .pub__cite, so that
+   when the aside carries its
+   own link (a companion blog post, say) the link lands in the same right-hand
+   column as the citation row's rather than trailing the sentence. With no
+   link the single child simply fills the row. */
 .pub__aside {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 2rem;
   font-size: 0.8125rem;
   color: var(--ink-faint);
   margin: 0 0 0.1rem;
   line-height: 1.5;
 }
+.pub__aside > .pub__aside-text { min-width: 0; flex: 1 1 auto; }
 .pub__aside .pub__zh { font-family: var(--cjk); }
 .pub__aside [lang="zh"] { font-family: var(--cjk); }
 .pub__sep { color: var(--rule-strong); margin: 0 0.15rem; }
@@ -956,6 +965,10 @@ h3 {
     white-space: normal;
     text-align: left;
     margin-top: 0.25rem;
+  }
+  .pub__aside {
+    display: block;
+    gap: 0;
   }
 }
 

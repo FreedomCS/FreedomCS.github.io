@@ -76,6 +76,12 @@ def entry(pub):
     if pub.get("note"):
         parts.append(pub["note"])
 
+    # On the page `note_links` renders as a chip in the right-hand column, which
+    # has no meaning in a flat list — but the URL still has to reach crawlers,
+    # so it becomes a trailing link instead.
+    for link in pub.get("note_links") or []:
+        parts.append(f'<a href="{esc(link["url"])}">{esc(link["label"])}</a>.')
+
     return "        <li>" + " ".join(parts) + "</li>"
 
 
