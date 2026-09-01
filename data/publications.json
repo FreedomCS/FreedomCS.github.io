@@ -155,7 +155,7 @@
       "language": "in Chinese",
       "url": "http://www.jryj.org.cn/CN/Y2019/V465/I3/53",
       "links": [{ "label": "pdf", "url": "http://www.jryj.org.cn/CN/Y2019/V465/I3/53#1" }],
-      "citations": { "cnki": 291, "scholar": 21 }
+      "citations": { "cnki": 291, "scholar": 22 }
     },
     {
       "id": "ppi-cpi-dsge-2018",
@@ -177,7 +177,7 @@
       "links": [
         { "label": "pdf-wp", "url": "https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID3221691_code2620649.pdf?abstractid=3221691&mirid=1" }
       ],
-      "citations": { "cnki": 10 }
+      "citations": { "cnki": 10, "scholar": 1 }
     },
     {
       "id": "targeted-monetary-policy-2018",
@@ -258,6 +258,7 @@
       "volume": "Selected Issues 1",
       "pages": "43–46",
       "url": "https://amro-asia.org/wp-content/uploads/2026/07/AMRO-Cambodia-ACR-2026_SI_1-US-Dollar-Liquidity_20260727.pdf",
+      "note": "as AMRO Blog: <em><a href=\"https://amro-asia.org/strengthening-us-dollar-liquidity-resilience-in-cambodias-banking-system\" rel=\"noopener\">Strengthening US Dollar Liquidity Resilience in Cambodia's Banking System</a></em>, 1 September 2026.",
       "links": [
         { "label": "pdf", "url": "https://amro-asia.org/wp-content/uploads/2026/07/AMRO-Cambodia-ACR-2026_SI_1-US-Dollar-Liquidity_20260727.pdf" }
       ]

@@ -71,6 +71,11 @@ def entry(pub):
     if pub.get("title_zh"):
         parts.append(esc(pub["title_zh"]))
 
+    # `note` carries inline HTML (<em>, <a>) exactly as site.js renders it, so
+    # it is passed through unescaped rather than run through esc().
+    if pub.get("note"):
+        parts.append(pub["note"])
+
     return "        <li>" + " ".join(parts) + "</li>"
 
 

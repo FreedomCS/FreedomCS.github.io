@@ -118,6 +118,42 @@ Newest first. The table above holds *standing* decisions; this records
 made that a future session would otherwise have to re-litigate. Keep it
 to a few lines; the reasoning matters more than the changed files.
 
+### 2026-09-02 — AMRO blog attached to its parent study; Scholar refreshed
+
+The blog post *Strengthening US Dollar Liquidity Resilience in Cambodia's
+Banking System* (AMRO Blog, 1 Sep 2026) is a companion to the Cambodia
+Selected Issues study, not a separate work. Added to
+`cambodia-usd-liquidity-2026` as a `note` line rather than as a 20th
+publication — a blog post is not a publication, and listing it
+separately would split one piece of work across two entries. `note` is
+one of the few fields `site.js` passes through unescaped, so it takes
+inline `<em>`/`<a>` (same as `republished`).
+
+The user's wording for the line is **"as AMRO Blog: *title*, date"** —
+his phrasing, matching the `role` convention ("as Member of the Working
+Group"). An earlier "Drawn on in…" was mine and was corrected. Use his
+form for any future republication or companion-piece line.
+
+**The blog link belongs on the note line, not in `links`.** It was first
+added as a `blog` chip in the right-hand column; the user asked for it
+on the blog line instead, and he is right — that column means "ways to
+get *this* publication" (`pdf`, `pdf-wp`) on every other entry, so a
+chip there implied the study had a blog version. The blog title is now
+the link, matching `929191c` on the articles page. Don't reintroduce the
+chip; a companion piece is linked from its own title.
+
+`scripts/build-noscript.py` ignored `note`, so the crawler-facing copy
+would have omitted the blog entirely; it now emits `note` unescaped too.
+Regenerate after editing `publications.json` — the block is replaced
+wholesale.
+
+**Google Scholar is scrapable; CNKI still is not.** The profile page
+returned the full list to a plain fetch. Definition/Composition 21→22,
+and PPI与CPI picked up its first Scholar citation (1) alongside its CNKI
+10. Everything else unchanged. Scholar also lists four papers not on the
+site (M2/GDP, the "Equilateral Triangle" piece, International Financial
+Crisis, Rural Finance) — left alone; the list is his to curate.
+
 ### 2026-08-03 — CNKI citation counts refreshed by hand
 
 Five Chinese-language papers updated in `publications.json`: 发展驱动因素
